@@ -1,0 +1,4 @@
+<div class="card">
+  <full-calendar #fullCalendar [options]="calendarOptions"></full-calendar>
+  <app-event-dialog [(display)]="displayDialog" [event]="selectedEvent" (onSave)="saveEvent($event)" (onCancel)="cancelEvent($event)" (onDelete)="deleteEvent()"></app-event-dialog>
+</div>

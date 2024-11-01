@@ -1,0 +1,59 @@
+@import './../../../../assets/scss/base';
+@import './../../../../assets/scss/mixins';
+@import './../../../../assets/scss/reset';
+@import './../../../../assets/scss/responsiveness';
+@import './../../../../assets/scss/variables';
+
+footer {
+  padding: 2rem;
+  background-color: #333;
+  color: $white-color;
+  text-align: center;
+
+  .footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+
+    .footer-logo a {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: $primary-color;
+    }
+
+    .footer-links a {
+      margin: 0 0.5rem;
+      color: $white-color;
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
+
+    .footer-social a {
+      margin: 0 0.5rem;
+
+      i {
+        font-size: 24px; 
+        color: $white-color; 
+
+        &:hover {
+          color: $primary-color; 
+        }
+      }
+    }
+  }
+
+  p {
+      font-size: 0.9rem;
+  }
+
+  @include respond-to(md) {
+      .footer-container {
+          flex-direction: column;
+          gap: 1rem;
+      }
+  }
+}

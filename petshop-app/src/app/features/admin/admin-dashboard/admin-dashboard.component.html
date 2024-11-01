@@ -1,0 +1,139 @@
+<main class="admin-dashboard" role="main">
+  <header class="dashboard-header" role="banner">
+    <h1>PetFlow</h1>
+  </header>
+  
+  <section class="profile-overview" *ngIf="user" aria-labelledby="profile-overview-heading">
+    <div class="profile-card">
+      <h2 id="profile-overview-heading">{{ user.name }}</h2>
+      <p>Bem-vindo(a), {{ user.email }}!</p>
+      <p>
+        <span *ngFor="let role of user.roles; let i = index">
+          {{ role.name }}
+        </span>
+      </p>
+    </div>
+  </section>
+  
+  <section class="dashboard-content" aria-labelledby="dashboard-content-heading">
+    <h2 id="dashboard-content-heading" class="sr-only">Dashboard Content</h2>
+    <div class="dashboard-grid">
+      <!-- Existing dashboard cards -->
+      <article class="dashboard-card" aria-labelledby="sales-heading">
+        <h3 id="sales-heading">Vendas</h3>
+        <p-chart type="bar" [data]="salesData"></p-chart>
+      </article>
+      <article class="dashboard-card" aria-labelledby="stock-heading">
+        <h3 id="stock-heading">Estoque</h3>
+        <p-table [value]="stockData" responsiveLayout="scroll">
+          <ng-template pTemplate="header">
+            <tr>
+              <th scope="col">Produto</th>
+              <th scope="col">Quantidade</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-item>
+            <tr>
+              <td>{{item.product}}</td>
+              <td>{{item.quantity}}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </article>
+      <article class="dashboard-card" aria-labelledby="appointments-heading">
+        <h3 id="appointments-heading">Agendamentos</h3>
+        <p-calendar [(ngModel)]="selectedDate"></p-calendar>
+      </article>          
+      <article class="dashboard-card" aria-labelledby="employees-heading">
+        <h3 id="employees-heading">Funcionários</h3>
+        <p-table [value]="employeesData" responsiveLayout="scroll">
+          <ng-template pTemplate="header">
+            <tr>
+              <th scope="col">Nome</th>
+              <th scope="col">Cargo</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-employee>
+            <tr>
+              <td>{{employee.name}}</td>
+              <td>{{employee.role}}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </article>
+      <article class="dashboard-card" aria-labelledby="clients-heading">
+        <h3 id="clients-heading">Clientes</h3>
+        <p-table [value]="clientsData" responsiveLayout="scroll">
+          <ng-template pTemplate="header">
+            <tr>
+              <th scope="col">Nome</th>
+              <th scope="col">Contato</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-client>
+            <tr>
+              <td>{{client.name}}</td>
+              <td>{{client.contact}}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </article>
+      <article class="dashboard-card" aria-labelledby="veterinarians-heading">
+        <h3 id="veterinarians-heading">Veterinários</h3>
+        <p-table [value]="veterinariansData" responsiveLayout="scroll">
+          <ng-template pTemplate="header">
+            <tr>
+              <th scope="col">Nome</th>
+              <th scope="col">Especialidade</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-vet>
+            <tr>
+              <td>{{vet.name}}</td>
+              <td>{{vet.specialty}}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </article>
+
+      <!-- New dashboard cards for metrics -->
+      <article class="dashboard-card" aria-labelledby="active-inactive-users-heading">
+        <h3 id="active-inactive-users-heading">Usuários Ativos/Inativos</h3>
+        <p>Ativos: {{ activeUsers }}</p>
+        <p>Inativos: {{ inactiveUsers }}</p>
+      </article>
+      <article class="dashboard-card" aria-labelledby="total-products-heading">
+        <h3 id="total-products-heading">Total de Produtos em Estoque</h3>
+        <p>{{ totalProductsInStock }}</p>
+      </article>
+      <article class="dashboard-card" aria-labelledby="total-cash-heading">
+        <h3 id="total-cash-heading">Valor Total em Caixa por Dia</h3>
+        <p>{{ totalCashPerDay | currency }}</p>
+      </article>
+      <article class="dashboard-card" aria-labelledby="total-appointments-heading">
+        <h3 id="total-appointments-heading">Total de Agendamentos de Serviços de Petshop</h3>
+        <p>Banho: {{ totalBathAppointments }}</p>
+        <p>Tosa: {{ totalGroomingAppointments }}</p>
+        <p>Banho e Tosa: {{ totalBathAndGroomingAppointments }}</p>
+      </article>
+      <article class="dashboard-card" aria-labelledby="total-vet-appointments-heading">
+        <h3 id="total-vet-appointments-heading">Total de Agendamentos de Consultas Veterinárias</h3>
+        <p>{{ totalVetAppointments }}</p>
+      </article>
+      <article class="dashboard-card" aria-labelledby="total-vaccines-heading">
+        <h3 id="total-vaccines-heading">Total de Vacinas Aplicadas</h3>
+        <p>{{ totalVaccinesAdministered }}</p>
+      </article>
+      <article class="dashboard-card" aria-labelledby="total-pets-heading">
+        <h3 id="total-pets-heading">Total de Pets Cadastrados</h3>
+        <p>{{ totalPetsRegistered }}</p>
+      </article>
+      <article class="dashboard-card" aria-labelledby="total-users-heading">
+        <h3 id="total-users-heading">Total de Usuários por Tipo de Role</h3>
+        <p>Clientes: {{ totalCustomers }}</p>
+        <p>Funcionários: {{ totalEmployees }}</p>
+        <p>Veterinários: {{ totalVeterinarians }}</p>
+      </article>
+    </div>
+  </section>
+</main>

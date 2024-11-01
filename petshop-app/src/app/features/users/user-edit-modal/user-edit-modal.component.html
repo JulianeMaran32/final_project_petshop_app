@@ -1,0 +1,22 @@
+<p-dialog 
+    class="user-edit" 
+    header="Editar Usuário" 
+    [(visible)]="visible" 
+    modal="modal" [responsive]="true">
+  <div class="form-group">
+    <label for="name">Nome:</label>
+    <input id="name" [(ngModel)]="updatedUser.name" />
+  </div>
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input id="email" type="email" [(ngModel)]="updatedUser.email" />
+  </div>
+  <div class="form-group">
+    <label for="phone">Telefone:</label>
+    <input id="phone" type="text" [(ngModel)]="updatedUser.phone" />
+  </div>
+  <footer>
+    <button pButton class="custom-button" label="Salvar" (click)="saveChanges()"></button>
+    <button pButton class="custom-button" label="Cancelar" (click)="closeModal()"></button>
+  </footer>
+</p-dialog>

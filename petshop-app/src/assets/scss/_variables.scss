@@ -1,0 +1,73 @@
+/** As variáveis facilitam a reutilização consistentes em todo o projeto. */
+
+/* Cores */
+$white-color: #fff;
+$primary-color: #FF6F61;
+$secondary-color: #4CAF50;
+$background-color: #f9f9f9;
+$text-color: #333;
+$input-border: #ccc;
+$input-border-focus: $primary-color;
+$error-color: #e74c3c; // Vermelho (error) OU #d9534f; // Vermelho claro
+$success-color: #2ecc71; // Verde (success) OU #5cb85c; // Verde claro
+$info-color: #17A2B8; // Azul (info) OU #5BC0DE; // Azul claro
+$warn-color: #FFA500; // Laranja (warn) OU #FFC107; // Amarelo
+
+/* Fontes */
+$font-family-base: Arial, Helvetica, sans-serif;
+$font-size-base: 16px;
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+
+/* Breakpoints */
+$breakpoint-sm: 480px;  // Smartphones
+$breakpoint-md: 768px;  // Tablets
+$breakpoint-lg: 1024px; // Notebooks/Laptops
+$breakpoint-xl: 1200px; // Monitores Grandes
+$breakpoint-xxl: 1600px; // Monitores Maiores
+
+/* Z-index */
+$z-index-header: 1000;
+$z-index-modal: 2000;
+
+/* Variáveis para tamanhos de fonte */
+$font-size-smartwatch: 0.75rem; // 12px
+$font-size-smartphone: 0.875rem; // 14px
+$font-size-tablet: 1rem; // 16px
+$font-size-notebook: 1.125rem; // 18px
+$font-size-desktop: 1.25rem; // 20px
+
+/* Outros */
+$transition-speed: 0.3s;
+
+// --------- excluir as variáveis abaixo ------------
+/* Paleta de Cores */
+$color-dark-blue: #2C3E50;
+$color-light-gray: #ECF0F1;
+$color-light-blue: #92A8D1;
+$color-dark-navy: #034F84;
+$color-light-pink: #F7CAC9;
+$color-success: #28a745;
+$color-warning: #ffc107;
+
+/* Variáveis de Tema Claro */
+$light-background: $color-light-gray;
+$light-text: $color-dark-blue;
+$light-title: $color-dark-navy;
+$light-button-bg: $color-light-blue;
+$light-button-text: $color-dark-blue;
+$light-link: $color-dark-navy;
+$light-link-hover: $color-light-blue;
+
+/* Variáveis de Tema Escuro */
+$dark-background: $color-dark-blue;
+$dark-text: $color-light-gray;
+$dark-title: $color-light-pink;
+$dark-button-bg: $color-dark-navy;
+$dark-button-text: $color-light-gray;
+$dark-link: $color-light-pink;
+$dark-link-hover: $color-light-blue;
+
+/* Borda */
+$border-radius: 4px;
+$border-color: $color-light-blue;

@@ -1,0 +1,58 @@
+<div class="settings-container">
+  <!-- Título principal da página -->
+  <header class="settings-header">
+    <h1>Configurações do Usuário</h1>
+  </header>
+
+  <!-- Seção de perfil do usuário -->
+  <section aria-labelledby="profile-section" class="settings-section">
+    <h2 id="profile-section">Perfil</h2>
+    <form>
+      <label for="profile-picture">Imagem de Perfil</label>
+      <input type="file" id="profile-picture" aria-describedby="profile-picture-desc" />
+      <p id="profile-picture-desc">Escolha uma imagem para seu perfil.</p>
+
+      <label for="username">Nome de Usuário</label>
+      <input type="text" id="username" name="username" />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" />
+      
+      <button type="submit">Salvar Alterações</button>
+    </form>
+  </section>
+
+  <!-- Seção de segurança -->
+  <section aria-labelledby="security-section" class="settings-section">
+    <h2 id="security-section">Segurança</h2>
+    <form>
+      <label for="password">Senha Atual</label>
+      <input type="password" id="password" name="password" />
+
+      <label for="new-password">Nova Senha</label>
+      <input type="password" id="new-password" name="new-password" />
+
+      <label for="confirm-password">Confirme a Nova Senha</label>
+      <input type="password" id="confirm-password" name="confirm-password" />
+
+      <button type="submit">Alterar Senha</button>
+    </form>
+  </section>
+
+  <!-- Seção de preferências -->
+  <section aria-labelledby="preferences-section" class="settings-section">
+    <h2 id="preferences-section">Preferências</h2>
+    <form>
+      <label for="notifications">Notificações por Email</label>
+      <input type="checkbox" id="notifications" name="notifications" />
+
+      <label for="theme">Tema</label>
+      <select id="theme" name="theme">
+        <option value="light">Claro</option>
+        <option value="dark">Escuro</option>
+      </select>
+
+      <button type="submit">Salvar Preferências</button>
+    </form>
+  </section>
+</div>

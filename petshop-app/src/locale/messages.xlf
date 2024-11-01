@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="heroTitle" datatype="html">
+        <source>Gerencie seu Petshop com Facilidade</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">5,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="heroDescription" datatype="html">
+        <source>Nosso software oferece todas as ferramentas que você precisa para administrar seu negócio de forma eficiente.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">6,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="heroButton" datatype="html">
+        <source>Comece Agora</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">7,9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="heroImageAlt" datatype="html">
+        <source>Gerenciamento de Petshop</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="featuresTitle" datatype="html">
+        <source>Recursos Principais</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">16,17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="feature1ImageAlt" datatype="html">
+        <source>Agendamento</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="feature1Title" datatype="html">
+        <source>Agendamento Online</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">20,21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="feature1Description" datatype="html">
+        <source>Facilite o agendamento de serviços para seus clientes.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">21,23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="feature2ImageAlt" datatype="html">
+        <source>Gestão Financeira</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="feature2Title" datatype="html">
+        <source>Gestão Financeira</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">25,26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="feature2Description" datatype="html">
+        <source>Controle suas finanças de forma simples e eficaz.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">26,28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="feature3ImageAlt" datatype="html">
+        <source>Controle de Estoque</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="feature3Title" datatype="html">
+        <source>Controle de Estoque</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">30,31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="feature3Description" datatype="html">
+        <source>Mantenha o estoque sempre atualizado e evite faltas.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">31,34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="pricingTitle" datatype="html">
+        <source>Planos de Preços</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">38,39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basicPlanTitle" datatype="html">
+        <source>Básico</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">41,42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basicPlanPrice" datatype="html">
+        <source>R$49/mês</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">42,44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basicPlanFeature1" datatype="html">
+        <source>Agendamento Online</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">44,45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basicPlanFeature2" datatype="html">
+        <source>Gestão Financeira</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">45,46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basicPlanFeature3" datatype="html">
+        <source>Suporte Básico</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">46,48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basicPlanButton" datatype="html">
+        <source>Escolher Plano</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">48,50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="professionalPlanTitle" datatype="html">
+        <source>Profissional</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">51,52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="professionalPlanPrice" datatype="html">
+        <source>R$99/mês</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">52,54</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="professionalPlanFeature1" datatype="html">
+        <source>Todos os Recursos Básicos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">54,55</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="professionalPlanFeature2" datatype="html">
+        <source>Controle de Estoque</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">55,56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="professionalPlanFeature3" datatype="html">
+        <source>Suporte Prioritário</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">56,58</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="professionalPlanButton" datatype="html">
+        <source>Escolher Plano</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">58,60</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="enterprisePlanTitle" datatype="html">
+        <source>Enterprise</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">61,62</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="enterprisePlanPrice" datatype="html">
+        <source>R$199/mês</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">62,64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="enterprisePlanFeature1" datatype="html">
+        <source>Todos os Recursos Profissionais</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">64,65</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="enterprisePlanFeature2" datatype="html">
+        <source>Integrações Personalizadas</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">65,66</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="enterprisePlanFeature3" datatype="html">
+        <source>Suporte 24/7</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">66,68</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="enterprisePlanButton" datatype="html">
+        <source>Escolher Plano</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">68,71</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testimonialsTitle" datatype="html">
+        <source>O que nossos clientes dizem</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">75,76</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testimonial1" datatype="html">
+        <source>&quot;O PetFlow revolucionou a gestão do meu petshop. Agora tenho mais tempo para cuidar dos meus clientes peludos!&quot;</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">78,79</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testimonial1Author" datatype="html">
+        <source>Maria Silva</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">79,81</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testimonial2" datatype="html">
+        <source>&quot;A interface é intuitiva e o suporte é excelente. Recomendo para qualquer negócio de petshop.&quot;</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">82,83</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testimonial2Author" datatype="html">
+        <source>João Pereira</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">83,85</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testimonial3" datatype="html">
+        <source>&quot;Com o PetFlow, consegui aumentar minha eficiência e melhorar o atendimento aos clientes.&quot;</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">86,87</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testimonial3Author" datatype="html">
+        <source>Ana Souza</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">87,90</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="registerCTATitle" datatype="html">
+        <source>Comece Agora</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">94,95</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="registerCTADescription" datatype="html">
+        <source>Experimente o PetFlow gratuitamente por 30 dias e transforme a gestão do seu petshop.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">95,96</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="registerCTAButton" datatype="html">
+        <source>Cadastrar-se</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">96,98</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

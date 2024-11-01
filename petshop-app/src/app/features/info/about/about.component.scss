@@ -1,0 +1,98 @@
+@import '../../../../assets/scss/mixins';
+@import '../../../../assets/scss/variables';
+
+.about {
+    @include center-content;
+    padding: 2rem;
+    background-color: $background-color;
+    color: $text-color;
+
+    .card {
+        padding: 2rem;
+        background-color: $white-color;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+        h1 {
+            font-size: 2rem;
+            color: $primary-color;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+    }
+
+    @include respond-to(sm) {
+        .card {
+            padding: 1rem;
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            p {
+                font-size: 0.875rem;
+            }
+        }
+    }
+
+    @include respond-to(md) {
+        .card {
+            padding: 1.5rem;
+
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            p {
+                font-size: 0.9375rem;
+            }
+        }
+    }
+
+    @include respond-to(lg) {
+        .card {
+            padding: 2rem;
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+        }
+    }
+
+    @include respond-to(xl) {
+        .card {
+            padding: 2.5rem;
+
+            h1 {
+                font-size: 2.25rem;
+            }
+
+            p {
+                font-size: 1.125rem;
+            }
+        }
+    }
+
+    @include respond-to(xxl) {
+        .card {
+            padding: 3rem;
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            p {
+                font-size: 1.25rem;
+            }
+        }
+    }
+}

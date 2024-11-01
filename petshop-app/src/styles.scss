@@ -1,0 +1,17 @@
+// PrimeNG
+@import "../node_modules/primeng/resources/primeng.min.css";
+@import "../node_modules/primeflex/primeflex.scss";
+@import "../node_modules/primeicons/primeicons.css";
+
+// styles.scss
+// @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+// @import '~@fortawesome/fontawesome-free/scss/solid';
+// @import '~@fortawesome/fontawesome-free/scss/regular';
+// @import '~@fortawesome/fontawesome-free/scss/brands';
+
+// Configurações Globais da aplicação
+@import './assets/scss/reset';
+
+@layer normalize, primeng;
+
+@import "normalize.css" layer(normalize-reset);
