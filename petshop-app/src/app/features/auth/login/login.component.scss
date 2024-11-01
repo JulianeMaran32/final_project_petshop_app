@@ -1,0 +1,219 @@
+@import './../../../../assets/scss/mixins';
+@import './../../../../assets/scss/variables';
+
+.login {
+  padding: 4rem 2rem;
+  text-align: left;
+  color: $primary-color;
+
+  h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+
+  .login-form {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+    .form-group {
+      margin-bottom: 1.5rem;
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+        color: $text-color;
+      }
+
+      .input-wrapper {
+        position: relative;
+
+        i {
+          position: absolute;
+          top: 50%;
+          left: 10px;
+          transform: translateY(-50%);
+          color: $primary-color;
+        }
+
+        input {
+          width: 100%;
+          padding-left: 40px;
+          padding-right: 10px;
+          height: 2.5rem;
+          border-radius: 5px;
+          border: 1px solid $input-border;
+          transition: border-color 0.3s ease;
+
+          &:focus {
+            border-color: $input-border-focus;
+            outline: none;
+          }
+        }
+      }
+
+      .error-message {
+        color: $error-color;
+        font-size: 0.85rem;
+        margin-top: 0.3rem;
+        text-align: left;
+      }
+    }
+
+    .btn-primary {
+      @include button-styles($primary-color, $white-color);
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 5px;
+
+      &:disabled {
+        background-color: lighten($primary-color, 20%);
+      }
+
+      .pi-spinner {
+        margin-left: 0.5rem;
+      }
+    }
+  }
+
+  .links {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    text-align: center;
+
+    a {
+      color: $primary-color;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      &:last-child {
+        margin-left: 1rem;
+      }
+    }
+    
+    a:first-child {
+      margin-right: 1rem;
+    }
+  }
+
+  @include respond-to(sm) {
+    padding: 2rem 1rem;
+
+    h2 {
+      font-size: 1.8rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+
+    .login-form {
+      padding: 1.5rem;
+      max-width: 350px;
+    }
+  }
+
+  @include respond-to(md) {
+    padding: 3rem 1.5rem;
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+    }
+
+    .login-form {
+      padding: 2rem;
+      max-width: 400px;
+    }
+  }
+
+  @include respond-to(lg) {
+    padding: 4rem 2rem;
+
+    h2 {
+      font-size: 2.2rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+
+    .login-form {
+      padding: 2.5rem;
+      max-width: 450px;
+    }
+  }
+
+  @include respond-to(xl) {
+    padding: 5rem 3rem;
+
+    h2 {
+      font-size: 2.5rem;
+    }
+
+    p {
+      font-size: 1.3rem;
+    }
+
+    .login-form {
+      padding: 3rem;
+      max-width: 500px;
+    }
+  }
+
+  @include respond-to(xxl) {
+    padding: 6rem 4rem;
+
+    h2 {
+      font-size: 2.8rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+    }
+
+    .login-form {
+      padding: 3.5rem;
+      max-width: 550px;
+    }
+  }
+
+  @media(max-width: 320px) {
+    padding: 1rem 0.5rem;
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      font-size: 0.85rem;
+    }
+
+    .login-form {
+      padding: 1rem;
+      max-width: 300px;
+    }
+
+    .btn-primary {
+      padding: 0.5rem;
+      font-size: 0.75rem;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+<div>
+  <!-- Label para o input de arquivo para informar o objetivo do elemento -->
+  <label for="file-upload" class="visually-hidden">Escolher uma imagem para upload</label>
+  <input 
+    type="file" 
+    id="file-upload" 
+    (change)="onFileSelected($event)" 
+    aria-describedby="upload-instructions"
+  />
+  <!-- Instruções para o upload -->
+  <p id="upload-instructions" class="visually-hidden">Selecione um arquivo para fazer o upload de uma imagem.</p>
+  
+  <!-- Área de progresso do upload com role de status para informar a atualização para o leitor de tela -->
+  <div *ngIf="uploadProgress" role="status" aria-live="polite">
+    Progresso do upload: {{ uploadProgress }}%
+  </div>
+  
+  <!-- Confirmação do upload concluído com role de status para atualizar o leitor de tela -->
+  <div *ngIf="downloadURL" role="status" aria-live="polite">
+    <p>Imagem carregada com sucesso!</p>
+    <img 
+      [src]="downloadURL" 
+      alt="Pré-visualização da imagem carregada" 
+      width="200" 
+      aria-describedby="download-description" 
+    />
+    <p id="download-description" class="visually-hidden">
+      Esta é a imagem que você acabou de carregar.
+    </p>
+  </div>
+  
+  <!-- Mensagem de erro com aria-live para alertar o usuário de falhas no upload -->
+  <div *ngIf="errorMessage" class="error-message" role="alert" aria-live="assertive">
+    <p>Erro: {{ errorMessage }}</p>
+  </div>
+</div>

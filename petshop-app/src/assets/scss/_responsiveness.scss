@@ -1,0 +1,121 @@
+@import 'variables';
+
+// Smartwatch
+@media(max-width: 320px) {
+  body {
+      font-size: $font-size-smartwatch;
+  }
+  .navbar {
+      padding: 0.5rem; 
+  }
+  .nav-links {
+      flex-direction: column; 
+  }
+  .auth-buttons {
+      flex-direction: column; 
+      gap: 0.25rem; 
+  }
+  .signup {
+      padding: 2rem 1rem; 
+      h2 {
+          font-size: 2rem; 
+      }
+      p {
+          font-size: 1rem; 
+      }
+      .signup-form {
+          padding: 1.5rem;
+      }
+      .btn-primary {
+          font-size: 1rem; 
+      }
+      .form-group {
+          label {
+              font-size: 0.9rem; 
+          }
+          input {
+              font-size: 0.9rem;
+          }
+      }
+  }
+}
+
+// Smartphone
+@media(min-width: 321px) and (max-width: 768px) {
+  body {
+      font-size: $font-size-smartphone;
+  }
+
+  .navbar {
+      padding: 1rem; 
+  }
+
+  .nav-links {
+      flex-direction: column;
+      padding: 0.5rem 0;
+  }
+
+  .auth-buttons {
+      flex-direction: row;
+      gap: 0.5rem;
+  }
+}
+
+// Tablet
+@media(min-width: 769px) and (max-width: 1024px) {
+  body {
+      font-size: $font-size-tablet;
+  }
+
+  .navbar {
+      padding: 1.5rem;
+  }
+
+  .nav-links {
+      display: flex;
+      gap: 1rem; 
+  }
+
+  .auth-buttons {
+      gap: 1rem;
+  }
+}
+
+// Notebook
+@media(min-width: 1025px) and (max-width: 1440px) {
+  body {
+      font-size: $font-size-notebook;
+  }
+
+  .navbar {
+      padding: 2rem;
+  }
+
+  .nav-links {
+      gap: 1.5rem; 
+  }
+
+  .auth-buttons {
+      gap: 1rem;
+  }
+}
+
+// Desktop (Monitores)
+@media(min-width: 1441px) {
+  body {
+      font-size: $font-size-desktop;
+  }
+
+  .navbar {
+      padding: 2rem; 
+      justify-content: space-around; 
+  }
+
+  .nav-links {
+      gap: 2rem; 
+  }
+
+  .auth-buttons {
+      gap: 1.5rem; 
+  }
+}

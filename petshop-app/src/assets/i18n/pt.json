@@ -1,0 +1,130 @@
+{
+    "COMMON": {
+        "lastUpdated": "Atualizado em",
+        "contact": "Contato",
+        "contactText": "Se você tiver dúvidas, entre em contato conosco:",
+        "contactPage": "Página de Contato",
+        "introduction": "Introdução",
+        "introductionText": "Bem-vindo aos nossos Termos de Uso. Por favor, leia com atenção.",
+        "privacyText": "Consulte nossa Política de Privacidade para obter informações sobre como coletamos, usamos e divulgamos suas informações pessoais.",
+        "name": "Nome",
+        "email": "Email"
+    },
+    "TERMS_OF_USE": {
+        "termsOfServiceTitle": "Termos de Uso",
+        "lastUpdated": "$COMMON.lastUpdated",
+        "introduction": "$COMMON.introduction",
+        "introductionText": "$COMMON.introductionText",
+        "acceptance": "Aceitação dos Termos",
+        "acceptanceText": "Ao acessar ou usar o serviço, você concorda em cumprir e ser regido por estes Termos de Uso.",
+        "modifications": "Modificações dos Termos",
+        "modificationsText": "Reservamo-nos o direito de modificar estes termos a qualquer momento. Notificaremos você sobre quaisquer alterações significativas.",
+        "usage": "Uso do Serviço",
+        "usageText": "Você concorda em usar o serviço apenas para fins legais e de acordo com estes termos.",
+        "account": "Conta de Usuário",
+        "accountText": "Você é responsável por manter a confidencialidade das informações da sua conta e por todas as atividades que ocorrem sob sua conta.",
+        "privacy": "Privacidade",
+        "privacyText": "$COMMON.privacyText",
+        "intellectualProperty": "Propriedade Intelectual",
+        "intellectualPropertyText": "Todo o conteúdo do serviço é protegido por direitos autorais e outras leis de propriedade intelectual.",
+        "liability": "Limitação de Responsabilidade",
+        "liabilityText": "Não seremos responsáveis por quaisquer danos indiretos, incidentais, especiais ou consequenciais decorrentes do uso do serviço.",
+        "termination": "Rescisão",
+        "terminationText": "Podemos encerrar ou suspender seu acesso ao serviço imediatamente, sem aviso prévio, por qualquer motivo, incluindo violação destes termos.",
+        "governingLaw": "Legislação Aplicável",
+        "governingLawText": "Estes termos serão regidos e interpretados de acordo com as leis do país em que nossa empresa está registrada.",
+        "contact": "$COMMON.contact",
+        "contactText": "$COMMON.contactText",
+        "contactPage": "$COMMON.contactPage"
+    },
+    "PRIVACY_POLICY": {
+        "privacyPolicyTitle": "Política de Privacidade",
+        "lastUpdated": "$COMMON.lastUpdated",
+        "introduction": "$COMMON.introduction",
+        "introductionText": "Esta Política de Privacidade descreve como coletamos, usamos e protegemos as informações que você nos fornece.",
+        "collectedInfo": "Informações Coletadas",
+        "collectedInfoText": "Coletamos informações quando você se registra em nosso site, faz uma compra ou interage conosco de outras maneiras.",
+        "collectedInfoList": {
+            "name": "$COMMON.name",
+            "email": "$COMMON.email",
+            "address": "Endereço",
+            "paymentInfo": "Informações de pagamento"
+        },
+        "usageInfo": "Uso das Informações",
+        "usageInfoText": "As informações que coletamos podem ser utilizadas das seguintes maneiras:",
+        "usageInfoList": {
+            "personalizeExperience": "Para personalizar sua experiência.",
+            "improveSite": "Para melhorar nosso site.",
+            "processTransactions": "Para processar transações."
+        },
+        "protectionInfo": "Proteção das Informações",
+        "protectionInfoText": "Implementamos uma variedade de medidas de segurança para manter a segurança das suas informações pessoais.",
+        "contact": "$COMMON.contact",
+        "contactText": "$COMMON.contactText",
+        "contactPage": "$COMMON.contactPage"
+    },
+    "CONTACT": {
+        "contactUs": "Contate-nos",
+        "name": "$COMMON.name",
+        "email": "$COMMON.email",
+        "message": "Mensagem",
+        "nameRequired": "Nome é obrigatório.",
+        "nameMinLength": "Nome deve ter pelo menos 3 caracteres.",
+        "emailRequired": "Email é obrigatório.",
+        "emailInvalid": "Email inválido.",
+        "messageRequired": "Mensagem é obrigatória.",
+        "messageMinLength": "Mensagem deve ter pelo menos 10 caracteres.",
+        "messageMaxLength": "Mensagem não pode exceder 1000 caracteres.",
+        "submit": "Enviar"
+    },
+    "ABOUT": {
+        "title": "Sobre Nós",
+        "welcome": "Bem-vindo ao nosso petshop! Estamos dedicados a fornecer os melhores serviços e produtos para o seu pet.",
+        "goal": "Nosso objetivo é garantir a saúde e felicidade do seu animal de estimação.",
+        "contact": "$COMMON.contact"
+    },
+    "HOME": {
+        "heroTitle": "Gerencie seu Petshop com Facilidade",
+        "heroText": "Nosso software oferece todas as ferramentas que você precisa para administrar seu negócio de forma eficiente.",
+        "heroButton": "Comece Agora",
+        "featuresTitle": "Recursos Principais",
+        "feature1Title": "Agendamento Online",
+        "feature1Text": "Facilite o agendamento de serviços para seus clientes.",
+        "feature2Title": "Gestão Financeira",
+        "feature2Text": "Controle suas finanças de forma simples e eficaz.",
+        "feature3Title": "Controle de Estoque",
+        "feature3Text": "Mantenha o estoque sempre atualizado e evite faltas.",
+        "pricingTitle": "Planos de Preços",
+        "pricingBasicTitle": "Básico",
+        "pricingBasicPrice": "R$49/mês",
+        "pricingBasicFeatures": [
+            "Agendamento Online",
+            "Gestão Financeira",
+            "Suporte Básico"
+        ],
+        "pricingProTitle": "Profissional",
+        "pricingProPrice": "R$99/mês",
+        "pricingProFeatures": [
+            "Todos os Recursos Básicos",
+            "Controle de Estoque",
+            "Suporte Prioritário"
+        ],
+        "pricingEnterpriseTitle": "Enterprise",
+        "pricingEnterprisePrice": "R$199/mês",
+        "pricingEnterpriseFeatures": [
+            "Todos os Recursos Profissionais",
+            "Integrações Personalizadas",
+            "Suporte 24/7"
+        ],
+        "testimonialsTitle": "O que nossos clientes dizem",
+        "testimonial1Text": "\"O PetFlow revolucionou a gestão do meu petshop. Agora tenho mais tempo para cuidar dos meus clientes peludos!\"",
+        "testimonial1Author": "Maria Silva",
+        "testimonial2Text": "\"A interface é intuitiva e o suporte é excelente. Recomendo para qualquer negócio de petshop.\"",
+        "testimonial2Author": "João Pereira",
+        "testimonial3Text": "\"Com o PetFlow, consegui aumentar minha eficiência e melhorar o atendimento aos clientes.\"",
+        "testimonial3Author": "Ana Souza",
+        "registerTitle": "Comece Agora",
+        "registerText": "Experimente o PetFlow gratuitamente por 30 dias e transforme a gestão do seu petshop.",
+        "registerButton": "Cadastrar-se"
+    }
+}

@@ -1,0 +1,285 @@
+@import './../../../../assets/scss/base';
+@import './../../../../assets/scss/mixins';
+@import './../../../../assets/scss/reset';
+@import './../../../../assets/scss/responsiveness';
+@import './../../../../assets/scss/variables';
+
+.header {
+  background-color: $primary-color;
+  padding: 1rem;
+  @include center-content;
+  position: relative;
+  z-index: $z-index-header;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    transition: flex-direction $transition-speed ease;
+  }
+
+  &__logo {
+    height: 40px;
+    margin-right: 1rem;
+    transition: margin $transition-speed ease;
+  }
+
+  &__menu-button {
+    display: none;
+    @include button-styles($primary-color, $white-color);
+    font-size: 2rem;
+  }
+
+  &__nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    transition: max-height $transition-speed ease-in-out, flex-direction $transition-speed ease;
+    max-height: none;
+    overflow: hidden;
+
+    &.is-open {
+      max-height: 500px; 
+    }
+
+    &-list {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      flex-wrap: wrap; // Permite que os itens se movam para a próxima linha
+    }
+
+    &-item {
+      position: relative;
+
+      &--dropdown:hover .header__dropdown {
+        display: block;
+      }
+
+      &--nested:hover .header__nested-dropdown {
+        display: block;
+      }
+    }
+
+    &-link {
+      color: $white-color;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      transition: color $transition-speed;
+
+      &:hover {
+        color: darken($white-color, 10%);
+      }
+
+      i {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
+  &__dropdown,
+  &__nested-dropdown {
+    display: none;
+    position: absolute;
+    background-color: $background-color;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    list-style: none;
+    padding: 0.5rem 0;
+    margin: 0;
+    z-index: $z-index-header;
+
+    &-link {
+      color: $text-color;
+      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center;
+      transition: background-color $transition-speed;
+
+      &:hover {
+        background-color: lighten($background-color, 10%);
+      }
+
+      i {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
+  &__search {
+    display: flex;
+    align-items: center;
+    background-color: lighten($primary-color, 10%);
+    padding: 0.5rem;
+    border-radius: 5px;
+    margin-right: 1rem;
+
+    i {
+      color: $white-color;
+      margin-right: 0.5rem;
+    }
+
+    input {
+      background: none;
+      border: none;
+      color: $white-color;
+      outline: none;
+      padding: 0.5rem;
+    }
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 0.5rem;
+    }
+
+    &-info {
+      display: none;
+      flex-direction: column;
+      color: $white-color;
+
+      span {
+        font-size: 0.875rem;
+      }
+    }
+  }
+}
+
+.header__dropdown {
+  display: none;
+  &.is-open {
+    display: block;
+  }
+}
+
+.header__nav-item--dropdown:hover .header__dropdown {
+  display: block;
+}
+
+// Estilos para dispositivos menores
+@include respond-to(xs) {
+  .header__content {
+    flex-direction: column; // Coloca os elementos em coluna
+    align-items: flex-start; // Alinha à esquerda
+  }
+
+  .header__logo {
+    margin-bottom: 1rem; // Adiciona espaço abaixo da logo
+  }
+
+  .header__nav {
+    display: flex;
+    flex-direction: column; // Garante que os itens do menu sejam empilhados
+    width: 100%; // Faz o menu ocupar toda a largura
+  }
+
+  .header__search {
+    margin-top: 1rem; // Adiciona espaço acima do campo de pesquisa
+    width: 100%; // Faz o campo de pesquisa ocupar toda a largura
+  }
+
+  .header__menu-button {
+    display: block; // Mantém o botão de menu visível
+    margin-bottom: 1rem; // Espaço abaixo do botão de menu
+  }
+
+  .header__user {
+    width: 100%; // Faz o avatar ocupar toda a largura
+    margin-top: 1rem; // Espaço acima do avatar
+    justify-content: flex-start; // Alinha à esquerda
+  }
+}
+
+// Estilos para smartphones
+@include respond-to(sm) {
+  .header__content {
+    flex-direction: column; // Coloca os elementos em coluna
+    align-items: flex-start; // Alinha à esquerda
+  }
+
+  .header__logo {
+    margin-bottom: 1rem; // Adiciona espaço abaixo da logo
+  }
+
+  .header__nav {
+    display: flex;
+    flex-direction: column; // Garante que os itens do menu sejam empilhados
+    width: 100%; // Faz o menu ocupar toda a largura
+  }
+
+  .header__search {
+    margin-top: 1rem; // Adiciona espaço acima do campo de pesquisa
+    width: 100%; // Faz o campo de pesquisa ocupar toda a largura
+  }
+
+  .header__menu-button {
+    display: block; // Mantém o botão de menu visível
+    margin-bottom: 1rem; // Espaço abaixo do botão de menu
+  }
+
+  .header__user {
+    width: 100%; // Faz o avatar ocupar toda a largura
+    margin-top: 1rem; // Espaço acima do avatar
+    justify-content: flex-start; // Alinha à esquerda
+  }
+}
+
+// Estilos para tablets
+@include respond-to(md) {
+  .header__content {
+    flex-direction: row; // Volta a ser linha em dispositivos médios
+    justify-content: space-between;
+  }
+
+  .header__logo {
+    margin-bottom: 0; // Remove a margem abaixo da logo
+  }
+
+  .header__nav {
+    display: flex;
+    flex-wrap: wrap; // Permite que os itens se movam para a próxima linha em telas menores
+    max-height: none;
+    justify-content: center; // Centraliza os itens do menu
+  }
+
+  .header__menu-button {
+    display: none; // Esconde o botão em telas médias
+  }
+
+  .header__search,
+  .header__user {
+    margin-top: 0; // Remove espaço acima quando em linha
+  }
+}
+
+// Estilos para notebooks
+@include respond-to(lg) {
+  .header__nav {
+    display: flex;
+    max-height: none;
+  }
+
+  .header__menu-button {
+    display: none;
+  }
+}
+
+// Estilos para desktops
+@include respond-to(xl) {
+  .header__nav {
+    display: flex;
+    max-height: none;
+  }
+
+  .header__menu-button {
+    display: none;
+  }
+}

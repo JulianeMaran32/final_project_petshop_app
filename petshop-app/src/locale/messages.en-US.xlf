@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="heroTitle" datatype="html">
+        <source>Gerencie seu Petshop com Facilidade</source>
+        <target>Manage Your Pet Shop with Ease</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">5,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="heroDescription" datatype="html">
+        <source>Nosso software oferece todas as ferramentas que você precisa para administrar seu negócio de forma eficiente.</source>
+        <target>Our software offers all the tools you need to efficiently manage your business.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">6,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="heroButton" datatype="html">
+        <source>Comece Agora</source>
+        <target>Start Now</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">7,9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="heroImageAlt" datatype="html">
+        <source>Gerenciamento de Petshop</source>
+        <target>Pet Shop Management</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="featuresTitle" datatype="html">
+        <source>Recursos Principais</source>
+        <target>Main Features</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">16,17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="feature1ImageAlt" datatype="html">
+        <source>Agendamento</source>
+        <target>Scheduling</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="feature1Title" datatype="html">
+        <source>Agendamento Online</source>
+        <target>Online Scheduling</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">20,21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="feature1Description" datatype="html">
+        <source>Facilite o agendamento de serviços para seus clientes.</source>
+        <target>Make it easy for your clients to schedule services.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">21,23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="feature2ImageAlt" datatype="html">
+        <source>Gestão Financeira</source>
+        <target>Financial Management</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="feature2Title" datatype="html">
+        <source>Gestão Financeira</source>
+        <target>Financial Management</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">25,26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="feature2Description" datatype="html">
+        <source>Controle suas finanças de forma simples e eficaz.</source>
+        <target>Manage your finances simply and effectively.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">26,28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="feature3ImageAlt" datatype="html">
+        <source>Controle de Estoque</source>
+        <target>Inventory Control</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="feature3Title" datatype="html">
+        <source>Controle de Estoque</source>
+        <target>Inventory Control</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">30,31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="feature3Description" datatype="html">
+        <source>Mantenha o estoque sempre atualizado e evite faltas.</source>
+        <target>Keep your inventory up to date and avoid shortages.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">31,34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="pricingTitle" datatype="html">
+        <source>Planos de Preços</source>
+        <target>Pricing Plans</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">38,39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basicPlanTitle" datatype="html">
+        <source>Básico</source>
+        <target>Basic</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">41,42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basicPlanPrice" datatype="html">
+        <source>R$49/mês</source>
+        <target>R$49/month</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">42,44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basicPlanFeature1" datatype="html">
+        <source>Agendamento Online</source>
+        <target>Online Scheduling</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">44,45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basicPlanFeature2" datatype="html">
+        <source>Gestão Financeira</source>
+        <target>Financial Management</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">45,46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basicPlanFeature3" datatype="html">
+        <source>Suporte Básico</source>
+        <target>Basic Support</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">46,48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="basicPlanButton" datatype="html">
+        <source>Escolher Plano</source>
+        <target>Choose Plan</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home/home.component.html</context>
+          <context context-type="linenumber">48,50</context>
+        </context-group>
+      </trans-unit>
+      <!-- Continue adicionando as traduções para os outros elementos -->
+    </body>
+  </file>
+</xliff>
