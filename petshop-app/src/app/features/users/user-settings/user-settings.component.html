@@ -1,123 +1,111 @@
 <div class="container">
   <div class="responsive-flex-container">
-      <ul class="responsive-list">
-        <li>
-          <a pRipple class="menu-link p-ripple p-element" routerLink="/settings">
-                <i class="pi pi-user menu-icon"></i>
-                <span class="menu-item-text">Meu Perfil</span>
-                <span class="p-ink"></span>
-            </a>
-        </li>
-          <li>
-            <a pRipple class="menu-link p-ripple p-element" routerLink="/pets">
-                <i class="fa-thin fa-paw menu-icon"></i>
-                <span class="menu-item-text">Meus Pets</span>
-                <span class="p-ink"></span>
-            </a>
-          </li>
-          <li>
-            <a pRipple class="menu-link p-ripple p-element" routerLink="/schedule">
-                <i class="pi pi-calendar menu-icon"></i>
-                <span class="menu-item-text">Agendamentos</span>
-                <span class="p-ink"></span>
-            </a>
-          </li>
-          <li>
-            <a pRipple class="menu-link p-ripple p-element" routerLink="/schedule">
-                <i class="fa-thin fa-vial-circle-check menu-icon"></i>
-                <span class="menu-item-text">Vacinas e Exames</span>
-                <span class="p-ink"></span>
-            </a>
-          </li>
-          <li>
-            <a pRipple class="menu-link p-ripple p-element" routerLink="/">
-                  <i class="pi pi-cog menu-icon"></i>
-                  <span class="menu-item-text">Conta</span>
-                  <span class="p-ink"></span>
-              </a>
-          </li>
-          <li>
-            <a pRipple class="menu-link p-ripple p-element" routerLink="/">
-                  <i class="pi pi-palette menu-icon"></i>
-                  <span class="menu-item-text">Aparência</span>
-                  <span class="p-ink"></span>
-              </a>
-          </li>
-          <li>
-            <a pRipple class="menu-link p-ripple p-element" routerLink="/">
-                  <i class="pi pi-sun menu-icon"></i>
-                  <span class="menu-item-text">Acessibilidade</span>
-                  <span class="p-ink"></span>
-              </a>
-          </li>
-          <li>
-            <a pRipple class="menu-link p-ripple p-element" routerLink="/">
-                  <i class="pi pi-bell menu-icon"></i>
-                  <span class="menu-item-text">Notificação</span>
-                  <span class="p-ink"></span>
-              </a>
-          </li>
-      </ul>
-      <div class="profile-card">
-        <div class="profile-title">
-          Perfil do Usuário
-        </div>
-          <p-divider class="p-element">
-              <div role="separator" class="divider-container">
-                  <div class="p-divider-content"></div>
-              </div>
-          </p-divider>
-          <!-- Perfil > Dados do Usuário -->
-          <div class="user-details-container">
-            <div class="user-details-section">
-                <div class="form-group">
-                    <label for="name" class="form-label">Nome</label>
-                    <input id="name" type="text" class="form-input">
-                </div>
-                <div class="form-group">
-                    <label for="email" class="form-label">E-mail</label>
-                    <input id="email" type="email" class="form-input">
-                </div>
-                <div class="form-group">
-                    <label for="cpf" class="form-label">CPF</label>
-                    <input id="cpf" type="text" class="form-input">
-                </div>
-                <div class="form-group">
-                    <label for="phone" class="form-label">Telefone</label>
-                    <input id="phone" type="tel" class="form-input">
-                </div>
-                <div>
-                    <button class="update-profile-button">
-                        <span class="p-button-label">Atualizar Perfil</span>
-                        <span class="p-ink"></span>
-                    </button>
-                </div>
-            </div>
-            <div class="profile-photo-container">
-              <span class="profile-photo-label">Foto de Perfil</span>
-              <img src="perfil_cat_01.png" class="profile-photo">
-              <button class="edit-button" type="button" icon="pi pi-pencil">
-                <span class="edit-icon pi pi-pencil" aria-hidden="true"></span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Endereço  'pi pi-address-book' -->
-
-          <!-- Meu Pet > Dados do Pet -->
-
-          <!-- Agendamentos > Serviços pi pi-calendar-clock | Consultas -->
-
-          <!-- Conta > Alterar Senha pi pi-key -->
-
-          <!-- Conta > Excluir Conta pi pi-times -->
-          
-          <!-- Aparência > Tema Claro pi pi-sun /Escuro pi pi-moon | Alterar Idioma pi pi-language -->
-
-          <!-- Acessiblidade -->
-
-          <!-- Notificações > E-mail pi pi-envelope | SMS pi pi-whatsapp -->
-
+    <ul class="responsive-list">
+      <li>
+        <a pRipple class="menu-link p-ripple p-element" routerLink="/settings">
+          <i class="pi pi-user menu-icon"></i>
+          <span class="menu-item-text">Meu Perfil</span>
+          <span class="p-ink"></span>
+        </a>
+      </li>
+      <li>
+        <a pRipple class="menu-link p-ripple p-element" (click)="showPetForm = !showPetForm">
+          <i class="fa-thin fa-paw menu-icon"></i>
+          <span class="menu-item-text">Meus Pets</span>
+          <span class="p-ink"></span>
+        </a>
+      </li>
+      <li>
+        <a pRipple class="menu-link p-ripple p-element" routerLink="/schedule">
+          <i class="pi pi-calendar menu-icon"></i>
+          <span class="menu-item-text">Agendamentos</span>
+          <span class="p-ink"></span>
+        </a>
+      </li>
+      <li>
+        <a pRipple class="menu-link p-ripple p-element" routerLink="/schedule">
+          <i class="fa-thin fa-vial-circle-check menu-icon"></i>
+          <span class="menu-item-text">Vacinas e Exames</span>
+          <span class="p-ink"></span>
+        </a>
+      </li>
+      <li>
+        <a pRipple class="menu-link p-ripple p-element" routerLink="/">
+          <i class="pi pi-cog menu-icon"></i>
+          <span class="menu-item-text">Conta</span>
+          <span class="p-ink"></span>
+        </a>
+      </li>
+      <li>
+        <a pRipple class="menu-link p-ripple p-element" routerLink="/">
+          <i class="pi pi-palette menu-icon"></i>
+          <span class="menu-item-text">Aparência</span>
+          <span class="p-ink"></span>
+        </a>
+      </li>
+      <li>
+        <a pRipple class="menu-link p-ripple p-element" routerLink="/">
+          <i class="pi pi-sun menu-icon"></i>
+          <span class="menu-item-text">Acessibilidade</span>
+          <span class="p-ink"></span>
+        </a>
+      </li>
+      <li>
+        <a pRipple class="menu-link p-ripple p-element" routerLink="/">
+          <i class="pi pi-bell menu-icon"></i>
+          <span class="menu-item-text">Notificação</span>
+          <span class="p-ink"></span>
+        </a>
+      </li>
+    </ul>
+    <div class="profile-card">
+      <div class="profile-title">
+        Perfil do Usuário
       </div>
+      <p-divider class="p-element">
+        <div role="separator" class="divider-container">
+          <div class="p-divider-content"></div>
+        </div>
+      </p-divider>
+      <!-- Perfil > Dados do Usuário -->
+      <div class="user-details-container">
+        <div class="user-details-section">
+          <div class="form-group">
+            <label for="name" class="form-label">Nome</label>
+            <input id="name" type="text" class="form-input">
+          </div>
+          <div class="form-group">
+            <label for="email" class="form-label">E-mail</label>
+            <input id="email" type="email" class="form-input">
+          </div>
+          <div class="form-group">
+            <label for="cpf" class="form-label">CPF</label>
+            <input id="cpf" type="text" class="form-input">
+          </div>
+          <div class="form-group">
+            <label for="phone" class="form-label">Telefone</label>
+            <input id="phone" type="tel" class="form-input">
+          </div>
+          <div>
+            <button class="update-profile-button">
+              <span class="p-button-label">Atualizar Perfil</span>
+              <span class="p-ink"></span>
+            </button>
+          </div>
+        </div>
+        <div class="profile-photo-container">
+          <span class="profile-photo-label">Foto de Perfil</span>
+          <img src="perfil_cat_01.png" class="profile-photo">
+          <button class="edit-button" type="button" icon="pi pi-pencil">
+            <span class="edit-icon pi pi-pencil" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
+
+<!-- Formulário de Cadastro de Pet -->
+<div *ngIf="showPetForm" class="container">
+  <app-pet-form></app-pet-form>
 </div>
