@@ -13,6 +13,7 @@ import { DividerModule } from 'primeng/divider';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RippleModule } from 'primeng/ripple';
 import { RouterModule } from '@angular/router';
+import { PetFormComponent } from "../../pets/pet-form/pet-form.component";
 
 @Component({
   selector: 'app-user-settings',
@@ -32,8 +33,9 @@ import { RouterModule } from '@angular/router';
     PasswordModule,
     DividerModule,
     FontAwesomeModule,
-    RippleModule
-  ],
+    RippleModule,
+    PetFormComponent
+],
   templateUrl: './user-settings.component.html',
   styleUrls: ['./user-settings.component.scss']
 })
@@ -61,6 +63,12 @@ export class UserSettingsComponent implements OnInit {
   ];
 
   constructor(private fb: FormBuilder) {}
+
+  showPetForm = false;
+
+  togglePetForm(): void {
+    this.showPetForm = !this.showPetForm;
+  }
 
   ngOnInit(): void {
     this.userProfileForm = this.fb.group({

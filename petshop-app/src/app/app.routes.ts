@@ -18,6 +18,7 @@ import { UserProfileComponent } from './features/users/user-profile/user-profile
 import { PetshopComponent } from './features/shop/petshop/petshop.component';
 import { UserSettingsComponent } from './features/users/user-settings/user-settings.component';
 import { PetshopCalendarComponent } from './features/calendar/petshop-calendar/petshop-calendar.component';
+import { PetFormComponent } from './features/pets/pet-form/pet-form.component';
 
 export const routes: Routes = [
     { 
@@ -96,13 +97,17 @@ export const routes: Routes = [
     // USERS
     { 
         path: 'settings', 
-        component: UserSettingsComponent,
-        canActivate: [authGuard]
+        component: UserSettingsComponent
+        // canActivate: [authGuard]
     },
     // CALENDAR
     { 
         path: 'calendar', 
         component: PetshopCalendarComponent
+    },
+    { 
+        path: 'pet-form', 
+        component: PetFormComponent
     },
     // { 
     //     path: 'schedule/services', 
