@@ -1,133 +1,129 @@
+@use 'sass:math';
 @import './../../../../assets/scss/variables';
-@import './../../../../assets/scss/mixins';
 
 .not-found {
-  @include center-content;
+  display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: $spacing-unit * 4;
+  background-color: $background-color-light;
+  color: $text-color-light;
+  font-family: $font-family-base;
   text-align: center;
-  padding: 2rem;
-  color: $text-color;
 
   header {
-    margin-bottom: 1rem;
+    text-align: center;
+    margin-bottom: $spacing-unit * 2;
 
-    h1 {
-      font-size: 5rem;
-      color: $error-color;
-    }
-
-    h2 {
-      font-size: 2rem;
+    // Estilo para o código de erro "404"
+    #error-code {
+      font-size: 6 * $font-size-base; // Font-size padrão
       color: $primary-color;
+      font-weight: bold;
+      margin: $spacing-unit * 2 0;
+
+      @include respond-to-xs {
+        font-size: 3 * $font-size-base;
+      }
+
+      @include respond-to-sm {
+        font-size: 4 * $font-size-base;
+      }
+
+      @include respond-to-md {
+        font-size: 5 * $font-size-base;
+      }
     }
-  }
 
-  p {
-    font-size: 1.25rem;
-    margin-bottom: 2rem;
-  }
+    // Estilo para o título "Página Não Encontrada"
+    #error-title {
+      font-size: 2.5 * $font-size-base;
+      font-weight: bold;
+      color: $text-color-light;
+      margin-bottom: $spacing-unit;
 
-  nav {
-    margin-bottom: 2rem;
+      @include respond-to-xs {
+        font-size: 1.5 * $font-size-base;
+      }
 
-    a {
-      color: $secondary-color;
-      text-decoration: underline;
-      &:hover {
-        color: darken($secondary-color, 10%);
+      @include respond-to-sm {
+        font-size: 2 * $font-size-base;
       }
     }
   }
 
-  .p-button-primary {
-    @include button-styles($primary-color, #fff);
+  // Estilo para a mensagem descritiva
+  &__message {
+    font-size: 1.25 * $font-size-base;
+    margin-bottom: $spacing-unit * 3;
+    color: $text-color-light;
+
+    @include respond-to-xs {
+      font-size: 1 * $font-size-base;
+    }
+
+    @include respond-to-sm {
+      font-size: 1.1 * $font-size-base;
+    }
+
+    @include respond-to-md {
+      font-size: 1.2 * $font-size-base;
+    }
+  }
+
+  // Estilo para a seção de navegação de botões
+  &__actions {
     display: flex;
-    align-items: center;
+    gap: $spacing-unit * 2;
+    flex-wrap: wrap;
 
-    i {
-      margin-right: 0.5rem;
-    }
-  }
+    .not-found__button {
+      display: flex;
+      align-items: center;
+      padding: $spacing-unit * 1.5 $spacing-unit * 3;
+      font-size: 1.125 * $font-size-base;
+      font-weight: bold;
+      border-radius: $border-radius;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
 
-  @include respond-to(sm) {
-    padding: 1rem;
-
-    header {
-      h1 {
-        font-size: 3rem;
+      &.icon-left {
+        margin-right: $spacing-unit;
       }
 
-      h2 {
-        font-size: 1.5rem;
-      }
-    }
-
-    p {
-      font-size: 1rem;
-    }
-  }
-
-  @include respond-to(md) {
-    header {
-      h1 {
-        font-size: 4rem;
+      &:first-child {
+        background-color: transparent;
+        color: $primary-color;
+        border: 1px solid $primary-color;
       }
 
-      h2 {
-        font-size: 1.75rem;
-      }
-    }
-
-    p {
-      font-size: 1.125rem;
-    }
-  }
-
-  @include respond-to(lg) {
-    header {
-      h1 {
-        font-size: 4.5rem;
+      &:last-child {
+        background-color: $primary-color;
+        color: $color-white;
       }
 
-      h2 {
-        font-size: 2rem;
-      }
-    }
-
-    p {
-      font-size: 1.25rem;
-    }
-  }
-
-  @include respond-to(xl) {
-    header {
-      h1 {
-        font-size: 5rem;
+      &:hover {
+        opacity: 0.9;
       }
 
-      h2 {
-        font-size: 2.25rem;
-      }
-    }
-
-    p {
-      font-size: 1.375rem;
-    }
-  }
-
-  @include respond-to(xxl) {
-    header {
-      h1 {
-        font-size: 5.5rem;
+      @include respond-to-xs {
+        font-size: $font-size-base;
+        padding: $spacing-unit $spacing-unit * 2;
       }
 
-      h2 {
-        font-size: 2.5rem;
+      @include respond-to-sm {
+        font-size: 1.05 * $font-size-base;
+        padding: $spacing-unit * 1.25 $spacing-unit * 2.5;
       }
-    }
 
-    p {
-      font-size: 1.5rem;
+      @include respond-to-md {
+        font-size: 1.1 * $font-size-base;
+        padding: $spacing-unit * 1.5 $spacing-unit * 3;
+      }
     }
   }
 }

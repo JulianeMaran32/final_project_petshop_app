@@ -1,17 +1,17 @@
-<main class="not-found" role="main" tabindex="0">
+<main class="not-found" aria-labelledby="error-title" role="main">
   <header>
-    <h1>404</h1>
-    <h2>Página Não Encontrada</h2>
+    <h1 id="error-code" aria-hidden="true">404</h1>
+    <h2 id="error-title">Página Não Encontrada</h2>
   </header>
-  <p>Desculpe, a página que você está procurando não existe.</p>
-  
-  <nav aria-label="Opções de navegação">
-    <p>
-      Você pode voltar à <a routerLink="/" aria-label="Página inicial">página inicial</a> ou explorar as opções abaixo.
-    </p>
+  <p class="not-found__message" tabindex="0">Desculpe, não conseguimos encontrar a página.</p>
+  <nav class="not-found__actions" aria-label="Page actions">
+    <button type="button" aria-label="Voltar" class="not-found__button" (click)="goBack()">
+      <span aria-hidden="true" class="icon-left pi pi-arrow-left"></span>
+      Voltar
+    </button>
+    <button type="button" aria-label="Voltar para Dashboard" class="not-found__button" (click)="goToDashboard()">
+      <span aria-hidden="true" class="icon-left pi pi-home"></span>
+      Voltar para Dashboard
+    </button>
   </nav>
-  
-  <button (click)="goBack()" class="p-button-primary" aria-label="Voltar" tabindex="0">
-    <i class="pi pi-arrow-left" aria-hidden="true"></i> Voltar
-  </button>
 </main>
