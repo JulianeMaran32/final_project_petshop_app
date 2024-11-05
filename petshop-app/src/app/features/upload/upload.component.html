@@ -1,0 +1,16 @@
+<section class="upload-container">
+    <h2>Upload de Imagem</h2>
+    <form>
+        <div>
+            <label for="file-upload" class="sr-only">Escolher arquivo</label>
+            <input type="file" id="file-upload" (change)="onFileSelected($event)" aria-label="Escolher arquivo">
+        </div>
+        <div>
+            <button type="button" (click)="onUpload()" aria-label="Fazer upload do arquivo">Upload</button>
+        </div>
+    </form>
+    <div *ngIf="downloadURL">
+        <p>Arquivo disponível em: <a [href]="downloadURL" target="_blank" aria-label="Link para o arquivo">{{
+                downloadURL }}</a></p>
+    </div>
+</section>
