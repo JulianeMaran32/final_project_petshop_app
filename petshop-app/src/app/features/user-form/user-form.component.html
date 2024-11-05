@@ -1,0 +1,100 @@
+<!-- user-form.component.html -->
+<div class="user-form-container">
+  <div class="user-form-card" role="form">
+    <div class="user-form">
+      <h2>Crie sua Conta</h2>
+    </div>
+
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="name">Nome</label>
+        <input id="name" formControlName="name" type="text" placeholder="Nome completo" pInputText>
+        <div *ngIf="userForm.get('name')?.invalid && userForm.get('name')?.touched" class="error-message">
+          <span *ngIf="userForm.get('name')?.errors?.['required']">Nome é obrigatório.</span>
+          <span *ngIf="userForm.get('name')?.errors?.['minlength']">Nome deve ter no mínimo 3 caracteres.</span>
+          <span *ngIf="userForm.get('name')?.errors?.['maxlength']">Nome deve ter no máximo 150 caracteres.</span>
+        </div>
+
+        <label for="email">Email</label>
+        <input id="email" formControlName="email" type="email" placeholder="Endereço de email" pInputText>
+        <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched" class="error-message">
+          <span *ngIf="userForm.get('email')?.errors?.['required']">Email é obrigatório.</span>
+          <span *ngIf="userForm.get('email')?.errors?.['email']">Email inválido.</span>
+          <span *ngIf="userForm.get('email')?.errors?.['maxlength']">Email deve ter no máximo 150 caracteres.</span>
+        </div>
+
+        <div class="form-row">
+          <div class="form-column">
+            <label for="cpf">CPF</label>
+            <input id="cpf" formControlName="cpf" type="text" placeholder="CPF" pInputText>
+            <div *ngIf="userForm.get('cpf')?.invalid && userForm.get('cpf')?.touched" class="error-message">
+              <span *ngIf="userForm.get('cpf')?.errors?.['required']">CPF é obrigatório.</span>
+              <span *ngIf="userForm.get('cpf')?.errors?.['pattern']">CPF inválido.</span>
+            </div>
+          </div>
+
+          <div class="form-column">
+            <label for="phone">Número de Telefone</label>
+            <input id="phone" formControlName="phone" type="text" placeholder="Número de telefone" pInputText>
+            <div *ngIf="userForm.get('phone')?.invalid && userForm.get('phone')?.touched" class="error-message">
+              <span *ngIf="userForm.get('phone')?.errors?.['required']">Número de telefone é obrigatório.</span>
+              <span *ngIf="userForm.get('phone')?.errors?.['pattern']">Número de telefone inválido.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-column">
+            <label for="password">Senha</label>
+            <input id="password" formControlName="password" type="password" placeholder="Senha" pInputText>
+            <div *ngIf="userForm.get('password')?.invalid && userForm.get('password')?.touched" class="error-message">
+              <span *ngIf="userForm.get('password')?.errors?.['required']">Senha é obrigatória.</span>
+              <span *ngIf="userForm.get('password')?.errors?.['pattern']">Senha deve conter no mínimo 8 caracteres,
+                sendo pelo menos uma letra minúscula, uma letra maiúscula, um número e um caracter especial.</span>
+            </div>
+          </div>
+
+          <div class="form-column">
+            <label for="confirm_password">Confirmar Senha</label>
+            <input id="confirm_password" formControlName="confirm_password" type="password"
+              placeholder="Confirmar senha" pInputText>
+            <div *ngIf="userForm.get('confirm_password')?.invalid && userForm.get('confirm_password')?.touched"
+              class="error-message">
+              <span *ngIf="userForm.get('confirm_password')?.errors?.['required']">Confirmação de senha é
+                obrigatória.</span>
+              <span *ngIf="userForm.errors?.['mismatch']">As senhas não coincidem.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="checkbox-group">
+            <p-checkbox id="isPetShopOwner" formControlName="isPetShopOwner" binary="true" styleClass="mr-2"
+              aria-labelledby="isPetShopOwnerLabel" (onChange)="onRoleChange('ADMIN')"></p-checkbox>
+            <label id="isPetShopOwnerLabel" for="isPetShopOwner">Sou dono de PetShop</label>
+          </div>
+
+          <div class="checkbox-group">
+            <p-checkbox id="isPetOwner" formControlName="isPetOwner" binary="true" styleClass="mr-2"
+              aria-labelledby="isPetOwnerLabel" (onChange)="onRoleChange('CUSTOMER')"></p-checkbox>
+            <label id="isPetOwnerLabel" for="isPetOwner">Sou tutor de Pet</label>
+          </div>
+        </div>
+
+        <div class="checkbox-group">
+          <p-checkbox id="agreeTerms" formControlName="agreeTerms" binary="true" styleClass="mr-2" required
+            aria-required="true" aria-labelledby="agreeTermsLabel"></p-checkbox>
+          <label id="agreeTermsLabel" for="agreeTerms">
+            Concordo com as
+            <a routerLink="/privacy-policy">Políticas de Privacidade</a>
+            e
+            <a routerLink="/terms-of-service">Termos de Uso</a>
+          </label>
+        </div>
+
+        <button pButton pRipple label="Cadastrar" icon="pi pi-user" class="user-form-button"
+          aria-label="Cadastrar"></button>
+      </div>
+    </form>
+  </div>
+</div>
