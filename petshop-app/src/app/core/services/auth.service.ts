@@ -1,14 +1,17 @@
 import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { LoginRequest } from '../../shared/models/auth/login-request.model';
-import { catchError, Observable, of, tap, throwError } from 'rxjs';
-import { TokenResponse } from '../../shared/models/auth/token-response.model';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { BehaviorSubject, catchError, Observable, of, tap, throwError } from 'rxjs';
+import { LoginRequest } from '../../shared/models/auth/login-request.model';
+import { TokenResponse } from '../../shared/models/auth/token-response.model';
 import { environment } from '../../../environments/environment';
 import { UserResponse } from '../../shared/models/user/user-response.model';
-import { Router } from '@angular/router';
 import { LoggerService } from './logger.service';
 
+/**
+ * O AuthService gerencia a autenticação do usuário, realizando login, logout e verificando se o usuário está autenticado.
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -16,15 +19,22 @@ export class AuthService {
 
   private apiUrl = `${environment.apiUrl}/api/auth`;
 
+  private currentUserSubject!: BehaviorSubject<TokenResponse | null>;
+  public currentUser!: Observable<TokenResponse | null>;
+
   constructor(
-    private http: HttpClient, 
+    private http: HttpClient,
     private router: Router,
     private logger: LoggerService,
-    @Inject(PLATFORM_ID) private platformId: Object 
-  ) {}
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {
+    const storedUser = sessionStorage.getItem('currentUser');
+    this.currentUserSubject = new BehaviorSubject<TokenResponse | null>(storedUser ? JSON.parse(storedUser) : null);
+    this.currentUser = this.currentUserSubject.asObservable();
+  }
 
   isAuthenticated(): boolean {
-    if (isPlatformBrowser(this.platformId)) { 
+    if (isPlatformBrowser(this.platformId)) {
       const token = sessionStorage.getItem('authToken');
       const isAuthenticated = !!token;
       this.logger.debug('Verificando se o usuário está autenticado', { isAuthenticated });
@@ -42,7 +52,7 @@ export class AuthService {
     return [];
   }
 
-  login(loginRequest: LoginRequest): Observable<TokenResponse> {
+  login(loginRequest: LoginRequest, rememberMe: boolean): Observable<TokenResponse> {
     this.logger.info('Iniciando login', { email: loginRequest.email });
 
     const headers = new HttpHeaders({
@@ -54,13 +64,18 @@ export class AuthService {
       .pipe(
         tap((response: TokenResponse) => {
           this.logger.info('Login realizado com sucesso', response);
-          if (isPlatformBrowser(this.platformId)) { 
-              sessionStorage.setItem('authToken', response.auth_token); 
-              sessionStorage.setItem('userRoles', JSON.stringify(response.roles));
-              this.redirectBasedOnRole(response.roles);
+          if (isPlatformBrowser(this.platformId)) {
+            sessionStorage.setItem('authToken', response.auth_token);
+            sessionStorage.setItem('userRoles', JSON.stringify(response.roles));
+            sessionStorage.setItem('currentUser', JSON.stringify(response));
+
+            if (rememberMe) {
+              this.setRememberMeCookie(response.auth_token);
+            }
+
+            this.redirectBasedOnRole(response.roles);
           }
-      }),
-      
+        }),
         catchError(this.handleError<TokenResponse>('login'))
       );
   }
@@ -87,12 +102,14 @@ export class AuthService {
       catchError(this.handleError<UserResponse>('getCurrentUser'))
     );
   }
+
   logout(): void {
     this.logger.info('Logout realizado, removendo informações do usuário');
-    if (isPlatformBrowser(this.platformId)) { 
+    if (isPlatformBrowser(this.platformId)) {
       sessionStorage.removeItem('authToken');
       sessionStorage.removeItem('userRoles');
       sessionStorage.removeItem('currentUser');
+      this.deleteRememberMeCookie();
     }
     this.router.navigate(['/']);
   }
@@ -106,18 +123,32 @@ export class AuthService {
   }
 
   getToken(): string {
-    const token = sessionStorage.getItem('authToken') || '';
+    const token = sessionStorage.getItem('authToken') || this.getRememberMeCookie() || '';
     this.logger.debug('Recuperando token de autenticação', { token });
     return token;
   }
 
+  private setRememberMeCookie(token: string): void {
+    const date = new Date();
+    date.setTime(date.getTime() + (30 * 24 * 60 * 60 * 1000)); // 30 dias
+    document.cookie = `authToken=${token}; expires=${date.toUTCString()}; path=/; Secure; HttpOnly`;
+  }
+
+  private getRememberMeCookie(): string | null {
+    const cookies = document.cookie.split(';');
+    const authTokenCookie = cookies.find(cookie => cookie.trim().startsWith('authToken='));
+    return authTokenCookie ? authTokenCookie.split('=')[1] : null;
+  }
+
+  private deleteRememberMeCookie(): void {
+    document.cookie = 'authToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; Secure; HttpOnly';
+  }
+
   private redirectBasedOnRole(roles: string[]): void {
-    if (roles.includes('SUPER_ADMIN')) {
-      this.router.navigate(['/super-admin']);
-    } else if (roles.includes('ADMIN')) {
-      this.router.navigate(['/admin']);
+    if (roles.includes('SUPER_ADMIN') || roles.includes('ADMIN')) {
+      this.router.navigate(['/dashboard']);
     } else {
-      this.router.navigate(['/products']);
+      this.router.navigate(['/user-profile']);
     }
   }
 
@@ -132,15 +163,15 @@ export class AuthService {
       this.logger.error(`${operation} falhou`, error);
 
       let errorMessage = 'Ocorreu um erro inesperado.';
-      
+
       if (error.error instanceof ErrorEvent) {
         this.logger.error('Erro no cliente', error.error.message);
         errorMessage = `Erro no cliente: ${error.error.message}`;
       } else {
-        this.logger.error(`Erro no servidor. Código: ${error.status}, ` + `Mensagem: ${error.message}`);
+        this.logger.error(`Erro no servidor. Código: ${error.status}, Mensagem: ${error.message}`);
         if (error.status === 401) {
           errorMessage = 'Não autorizado. Por favor, faça login novamente.';
-          this.logout(); 
+          this.logout();
         } else if (error.status === 403) {
           errorMessage = 'Acesso negado. Você não tem permissão para realizar essa ação.';
         } else if (error.status === 500) {
@@ -150,5 +181,5 @@ export class AuthService {
       return throwError(() => new Error(errorMessage));
     };
   }
-  
+
 }

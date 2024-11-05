@@ -5,7 +5,8 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { LoggerService } from './logger.service';
 import { AuthService } from './auth.service';
-import { Address } from '../../shared/models/address/address.model';
+import { AddressResponse } from '../../shared/models/address/address-response.model';
+import { AddressRequest } from '../../shared/models/address/address-request.model';
 
 @Injectable({
   providedIn: 'root'
@@ -19,17 +20,17 @@ export class AddressService {
     private logger: LoggerService, 
     private authService: AuthService) { }
 
-  getAddressByCep(cep: string): Observable<Address> {
+  getAddressByCep(cep: string): Observable<AddressResponse> {
     this.logger.info('Buscando endereço pelo CEP', { cep });
-    return this.http.get<Address>(`${this.apiUrl}/cep/${cep}`).pipe(
+    return this.http.get<AddressResponse>(`${this.apiUrl}/cep/${cep}`).pipe(
       tap(response => this.logger.debug('Endereço buscado com sucesso', response)),
       catchError(error => this.handleError('getAddressByCep', error))
     );
   }
 
-  getAddressByDetails(uf: string, city: string, street: string): Observable<Address[]> {
+  getAddressByDetails(uf: string, city: string, street: string): Observable<AddressResponse[]> {
     this.logger.info('Buscando endereço pelos detalhes', { uf, city, street });
-    return this.http.get<Address[]>(`${this.apiUrl}/search`, {
+    return this.http.get<AddressResponse[]>(`${this.apiUrl}/search`, {
       params: { uf, city, street }
     }).pipe(
       tap(response => this.logger.debug('Endereços buscados com sucesso', response)),
@@ -37,12 +38,12 @@ export class AddressService {
     );
   }
 
-  createAddress(addressRequest: Address): Observable<Address> {
+  createAddress(addressRequest: AddressRequest): Observable<AddressResponse> {
     if (!this.authService.isAuthenticated()) {
       return throwError(() => new Error('Usuário não autenticado.'));
     }
     this.logger.info('Criando endereço', addressRequest);
-    return this.http.post<Address>(this.apiUrl, addressRequest, {
+    return this.http.post<AddressResponse>(this.apiUrl, addressRequest, {
       headers: {
         Authorization: `Bearer ${this.authService.getToken()}`
       }
@@ -52,12 +53,12 @@ export class AddressService {
     );
   }
 
-  updateAddress(id: number, addressRequest: Address): Observable<Address> {
+  updateAddress(id: number, addressRequest: AddressResponse): Observable<AddressResponse> {
     if (!this.authService.isAuthenticated()) {
       return throwError(() => new Error('Usuário não autenticado.'));
     }
     this.logger.info('Atualizando endereço', { id, addressRequest });
-    return this.http.put<Address>(`${this.apiUrl}/${id}`, addressRequest, {
+    return this.http.put<AddressResponse>(`${this.apiUrl}/${id}`, addressRequest, {
       headers: {
         Authorization: `Bearer ${this.authService.getToken()}`
       }
@@ -86,4 +87,5 @@ export class AddressService {
     this.logger.error(`${operation} falhou`, error);
     return throwError(() => error);
   }
+
 }

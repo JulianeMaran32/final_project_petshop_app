@@ -5,6 +5,7 @@ import { Observable, tap } from 'rxjs';
 import { PetResponse } from '../../shared/models/pet/pet-response.model';
 import { PetRequest } from '../../shared/models/pet/pet-request.model';
 import { LoggerService } from './logger.service';
+import { PetStatisticsResponse } from '../../shared/models/pet/pet-statistics-response.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,12 +16,27 @@ export class PetService {
 
   constructor(private http: HttpClient, private logger: LoggerService) { }
 
+  getPetById(petId: number): Observable<PetResponse> {
+    this.logger.info(`Buscando pet com ID ${petId}`);
+    return this.http.get<PetResponse>(`${this.apiUrl}/${petId}`).pipe(
+      tap(pet => this.logger.info(`Pet encontrado com ID ${petId}`, pet))
+    );
+  }
+
   getPets(filterParams?: any): Observable<PetResponse[]> {
     this.logger.info('Buscando pets com parâmetros de filtro', filterParams);
     return this.http.get<PetResponse[]>(`${this.apiUrl}/filter`, { params: filterParams }).pipe(
       tap(pets => this.logger.info('Pets buscados', pets))
     );
   }
+
+  getPetStatistics(): Observable<PetStatisticsResponse[]> {
+    this.logger.info('Buscando estatísticas de pets');
+    return this.http.get<PetStatisticsResponse[]>(`${this.apiUrl}/statistics`).pipe(
+      tap(statistics => this.logger.info('Estatísticas de pets buscadas', statistics))
+    );
+  }
+
   createPet(pet: PetRequest): Observable<PetResponse> {
     this.logger.info('Criando pet', pet);
     return this.http.post<PetResponse>(this.apiUrl, pet).pipe(
@@ -62,5 +78,5 @@ export class PetService {
       tap(() => this.logger.info(`Pet deletado para cliente com ID ${petId}`))
     );
   }
-  
+
 }
