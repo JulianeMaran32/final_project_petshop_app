@@ -1,101 +1,163 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { PetService } from '../../../core/services/pet.service';
-import { LoggerService } from '../../../core/services/logger.service';
-import { Species } from '../../../shared/enums/species.enum';
-import { Gender } from '../../../shared/enums/gender.enum';
-import { PetRequest } from '../../../shared/models/pet/pet-request.model';
+import { RouterModule } from '@angular/router';
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
 import { PetResponse } from '../../../shared/models/pet/pet-response.model';
-import { DividerModule } from 'primeng/divider';
+import { PetService } from '../../../core/services/pet.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { PetFormComponent } from '../pet-form/pet-form.component';
+import { FileUploadModule } from 'primeng/fileupload';
+import { DropdownModule } from 'primeng/dropdown';
+import { TagModule } from 'primeng/tag';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { RatingModule } from 'primeng/rating';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { Table, TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
+import { RippleModule } from 'primeng/ripple';
+import { ToastModule } from 'primeng/toast';
+import { ToolbarModule } from 'primeng/toolbar';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 @Component({
   selector: 'app-pet-list',
   standalone: true,
   imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    DividerModule,
-    PetFormComponent,
-    DialogModule,
-    ConfirmDialogModule
+    CommonModule, FormsModule,
+    ReactiveFormsModule, RouterModule,
+    TableModule, DialogModule,
+    RippleModule, ButtonModule,
+    ToastModule, ToolbarModule,
+    ConfirmDialogModule, InputTextModule,
+    InputTextareaModule, FileUploadModule,
+    DropdownModule, TagModule,
+    RadioButtonModule, RatingModule,
+    InputTextModule, InputNumberModule
   ],
   templateUrl: './pet-list.component.html',
   styleUrls: ['./pet-list.component.scss'],
-  providers: [ PetService, LoggerService, ConfirmationService, MessageService],
+  providers: [MessageService, ConfirmationService, PetService]
 })
 export class PetListComponent implements OnInit {
 
-  pets: PetResponse[] = [];
-  searchTerm: string = '';
-  displayPetForm: boolean = false;
-  selectedPet: PetResponse | null = null;
+  @ViewChild('dt') dt: Table | undefined;
+  
+  petDialog: boolean = false;
+
+  pets!: PetResponse[];
+
+  pet!: PetResponse;
+
+  selectedPets!: PetResponse[] | null;
+
+  submitted: boolean = false;
 
   constructor(
     private petService: PetService,
-    private confirmationService: ConfirmationService,
-    private messageService: MessageService
-  ) {}
+    private messageService: MessageService,
+    private confirmationService: ConfirmationService) { }
 
-  ngOnInit(): void {
-    this.loadPets();
+  ngOnInit() {
+    this.petService.getPets().subscribe((data) => (this.pets = data));
   }
 
-  loadPets(): void {
-    this.petService.getPets().subscribe((data: PetResponse[]) => {
-      this.pets = data;
-    });
+  onGlobalFilter(event: Event): void {
+    const inputElement = event.target as HTMLInputElement;
+    this.dt?.filterGlobal(inputElement.value, 'contains');
   }
 
-  showPetFormDialog(): void {
-    this.selectedPet = null;
-    this.displayPetForm = true;
+  openNew() {
+    this.pet = {} as PetResponse;
+    this.submitted = false;
+    this.petDialog = true;
   }
 
-  searchPets(): void {
-    if (this.searchTerm) {
-      this.pets = this.pets.filter(pet => pet.name.toLowerCase().includes(this.searchTerm.toLowerCase()));
-    } else {
-      this.loadPets();
-    }
-  }
-
-  editPet(pet: PetResponse): void {
-    this.selectedPet = pet;
-    this.displayPetForm = true;
-  }
-
-  confirmDeletePet(pet: PetResponse): void {
+  deleteSelectedPets() {
     this.confirmationService.confirm({
-      message: `Tem certeza que deseja excluir o pet ${pet.name}?`,
+      message: 'Você tem certeza que deseja excluir os pets selecionados?',
+      header: 'Confirmar',
+      icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        this.deletePet(pet.id);
+        this.selectedPets?.forEach(pet => {
+          this.petService.deletePet(pet.id).subscribe(() => {
+            this.pets = this.pets.filter(val => val.id !== pet.id);
+          });
+        });
+        this.selectedPets = null;
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Sucesso',
+          detail: 'Pets Excluídos.',
+          life: 3000
+        });
       }
     });
   }
 
-  deletePet(petId: number): void {
-    this.petService.deletePet(petId).subscribe(() => {
-      this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Pet excluído com sucesso' });
-      this.loadPets();
-    }, error => {
-      this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Erro ao excluir o pet' });
+  viewPet(pet: PetResponse) {
+    this.pet = { ...pet };
+    this.petDialog = true;
+  }
+
+  editPet(pet: PetResponse) {
+    this.pet = { ...pet };
+    this.petDialog = true;
+  }
+  deletePet(pet: PetResponse) {
+    this.confirmationService.confirm({
+      message: 'Você tem certeza que deseja excluir ' + pet.name + '?',
+      header: 'Confirmar',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.petService.deletePet(pet.id).subscribe(() => {
+          this.pets = this.pets.filter(val => val.id !== pet.id);
+          this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Pet Excluído', life: 3000 });
+        });
+      }
     });
   }
 
-  onSavePet(event: any): void {
-    this.displayPetForm = false;
-    this.loadPets();
-    this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Pet salvo com sucesso' });
+  hideDialog() {
+    this.petDialog = false;
+    this.submitted = false;
   }
 
-  onCancelPet(): void {
-    this.displayPetForm = false;
+  savePet() {
+    this.submitted = true;
+
+    if (this.pet.name?.trim()) {
+      if (this.pet.id) {
+        this.petService.updatePet(this.pet.id, this.pet).subscribe(updatedPet => {
+          this.pets[this.findIndexById(this.pet.id)] = updatedPet;
+          this.messageService.add({
+            severity: 'success', summary: 'Successful', detail: 'Pet atualizado!', life: 3000
+          });
+        });
+      } else {
+        this.petService.createPet(this.pet).subscribe(createdPet => {
+          this.pets.push(createdPet);
+          this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Pet cadastrado!', life: 3000 });
+        });
+      }
+
+      this.pets = [...this.pets];
+      this.petDialog = false;
+      this.pet = {} as PetResponse;
+    }
+  }
+
+  findIndexById(id: number): number {
+    let index = -1;
+    for (let i = 0; i < this.pets.length; i++) {
+      if (this.pets[i].id === id) {
+        index = i;
+        break;
+      }
+    }
+
+    return index;
   }
 
 }
