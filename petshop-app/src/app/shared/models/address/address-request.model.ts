@@ -1,12 +1,12 @@
-export interface Address {
+export interface AddressRequest {
     id: number;
-    zipCode: string;
+    zip_code: string;
     street?: string;
-    number?: string;
     neighborhood?: string;
     city?: string;
     complement?: string;
     unit?: string;
     state?: string;
     country?: string;
+    user_id?: number;
 }

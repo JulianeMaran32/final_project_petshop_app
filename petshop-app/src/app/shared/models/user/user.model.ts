@@ -1,5 +1,5 @@
 import { Role } from "../../enums/role.enum";
-import { Address } from "../address/address.model";
+import { Address } from "../address/address-response.model";
 import { Pet } from "../pet/pet.model";
 import { Purchase } from "../purchase/purchase.model";
 

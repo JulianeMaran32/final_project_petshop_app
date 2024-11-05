@@ -17,4 +17,5 @@ export interface PetResponse {
     created_date?: Date;
     updated_date?: Date;
     userId?: number;
+    image?: string;
 }
