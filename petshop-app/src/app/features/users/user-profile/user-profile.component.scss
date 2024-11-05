@@ -1,57 +1,70 @@
-@import './../../../../assets/scss/mixins';
-@import './../../../../assets/scss/variables';
-
-.settings-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
+.header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
 }
 
-.settings-header {
-  text-align: center;
-  margin-bottom: 20px;
+.profile {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.settings-section {
-  margin-bottom: 30px;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+.profile-info {
+    text-align: center;
 }
 
-.settings-section h2 {
-  font-size: 1.5em;
-  margin-bottom: 10px;
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
-.settings-section form {
-  display: flex;
-  flex-direction: column;
+.profile-name {
+    font-size: 2rem;
+    margin: 1rem 0;
 }
 
-.settings-section label {
-  font-weight: bold;
-  margin: 10px 0 5px;
+.profile-bio {
+    font-size: 1rem;
+    color: #666;
 }
 
-.settings-section input,
-.settings-section select,
-.settings-section button {
-  padding: 10px;
-  font-size: 1em;
+.profile-details {
+    margin-top: 2rem;
 }
 
-button[type="submit"] {
-  margin-top: 15px;
-  padding: 10px 15px;
-  font-size: 1em;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+.upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+
+    input[type="file"] {
+        margin-bottom: 10px;
+    }
+
+    button {
+        margin-bottom: 10px;
+    }
+
+    a {
+        color: blue;
+        text-decoration: underline;
+    }
 }
 
-button[type="submit"]:hover {
-  background-color: #0056b3;
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
 }

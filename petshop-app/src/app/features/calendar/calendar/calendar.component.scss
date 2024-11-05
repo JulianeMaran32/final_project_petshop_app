@@ -1,0 +1,83 @@
+@use 'sass:math';
+@import './../../../../assets/scss/variables'; // Certifique-se de ajustar o caminho para o arquivo de variáveis
+
+:root {
+    --fc-border-color: $color-black;
+    --fc-daygrid-event-dot-width: 5px;
+    --fc-today-bg-color: $secondary-color;
+    --fc-event-bg-color: $primary-color;
+    --fc-event-border-color: $primary-color;
+    --fc-event-text-color: $color-white;
+}
+
+.card {
+    font-family: $font-family-base;
+    background-color: $background-color-light;
+    padding: $spacing-unit * 2;
+    border-radius: $border-radius;
+    box-shadow: 0 2px 4px rgba($color-black, 0.1);
+    margin: auto;
+    max-width: 1200px;
+
+    @include respond-to-xs {
+        padding: $spacing-unit;
+    }
+
+    @include respond-to-sm {
+        padding: $spacing-unit * 1.5;
+    }
+
+    @include respond-to-md {
+        padding: $spacing-unit * 2;
+    }
+
+    @include respond-to-lg {
+        padding: $spacing-unit * 2.5;
+    }
+
+    @include respond-to-xl {
+        padding: $spacing-unit * 3;
+    }
+}
+
+.full-calendar {
+    .fc-toolbar {
+        .fc-button {
+            background-color: $primary-color;
+            color: $color-white;
+            border: none;
+            border-radius: $border-radius;
+            padding: $spacing-unit;
+
+            &:hover {
+                background-color: darken($primary-color, 10%);
+            }
+
+            &:focus {
+                outline: 2px solid $secondary-color;
+                outline-offset: 2px;
+            }
+        }
+
+        .fc-button-group {
+            margin: $spacing-unit;
+        }
+
+        .fc-toolbar-title {
+            font-size: 1.5em;
+            color: $text-color-light;
+        }
+    }
+
+    .fc-event {
+        background-color: var(--fc-event-bg-color);
+        border-color: var(--fc-event-border-color);
+        color: var(--fc-event-text-color);
+        border-radius: $border-radius;
+        padding: $spacing-unit;
+    }
+
+    .fc-day-today {
+        background-color: var(--fc-today-bg-color);
+    }
+}

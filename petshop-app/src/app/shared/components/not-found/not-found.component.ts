@@ -12,7 +12,7 @@ import { ButtonModule } from 'primeng/button';
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    ButtonModule 
+    ButtonModule
   ],
   templateUrl: './not-found.component.html',
   styleUrl: './not-found.component.scss'
@@ -21,8 +21,13 @@ export class NotFoundComponent {
 
   constructor(private router: Router) { }
 
+  // Método para voltar usando o histórico do navegador
   goBack(): void {
-    this.router.navigate(['/']);
+    window.history.back();
+  }
+
+  goToDashboard(): void {
+    this.router.navigate(['/dashboard']);
   }
 
 }

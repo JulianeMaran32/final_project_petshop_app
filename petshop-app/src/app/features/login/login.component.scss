@@ -1,0 +1,98 @@
+/* login.component.scss */
+@use 'sass:math';
+@import './../../../assets/scss/variables';
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--background-color);
+
+    .login-card {
+        padding: 1rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: $border-radius;
+        width: 90%;
+        max-width: 500px;
+
+        .login-img {
+            text-align: center;
+            margin-bottom: 1.25rem;
+            font-weight: 500;
+
+            span {
+                line-height: 1.5;
+            }
+
+            a {
+                text-decoration: none;
+                margin-left: 0.5rem;
+                cursor: pointer;
+                color: $primary-color;
+            }
+
+        }
+
+        h2 {
+            color: $primary-color;
+            font-size: 1.875rem;
+            margin-bottom: 0.75rem;
+        }
+
+        label {
+            color: $primary-color;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        ::ng-deep .p-inputtext {
+            border: 1px solid $primary-color;
+            width: 100%;
+            margin-bottom: 0.75rem;
+            padding: 0.5rem;
+
+            &:focus {
+                border-color: darken($primary-color, 10%);
+            }
+        }
+
+        .btn-link {
+            display: flex;
+            color: $primary-color;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+
+            .btn-link-remember {
+                display: flex;
+                align-items: center;
+            }
+
+            .forgot-pwd {
+                margin-left: 0.5rem;
+                cursor: pointer;
+                text-align: right;
+            }
+
+        }
+
+        ::ng-deep .p-button {
+            background-color: $primary-color;
+            border: none;
+            width: 100%;
+            padding: 0.75rem;
+
+            &:hover {
+                background-color: darken($primary-color, 10%);
+            }
+        }
+
+        .error-message {
+            color: red;
+            font-size: 0.875rem;
+            margin-top: -0.5rem;
+            margin-bottom: 0.5rem;
+        }
+    }
+}

@@ -1,0 +1,140 @@
+<!-- home.component.html -->
+<div class="home-container"> <!-- Container Principal -->
+  <div class="hero-section"> <!-- Div Section -->
+    <div class="grid grid-nogutter surface-section"> <!-- Container Principal -->
+      <div class="col-12 md:col-6 p-6 text-center md:text-left flex align-items-center">
+        <section> <!-- Section 1 -->
+          <h1 class="block text-6xl font-bold mb-1">{{ 'HOME.welcome' | translate }}</h1>
+          <h2 class="text-6xl text-primary font-bold mb-3">{{ 'HOME.manage' | translate }}</h2>
+          <p class="mt-0 mb-4 line-height-3">{{ 'HOME.explore' | translate }}</p>
+          <button pButton pRipple label="{{ 'HOME.register' | translate }}" type="button"
+            class="p-button-raised"></button>
+        </section> <!-- // Section 1 -->
+      </div>
+      <div class="col-12 md:col-6 overflow-hidden"> <!-- Div Img -->
+        <img src="racao-dog-cat.png" alt="Imagem de um pet feliz" class="md:ml-auto block md:h-full"
+          style="clip-path: polygon(8% 0, 100% 0%, 100% 100%, 0 100%)">
+      </div> <!-- Div Img -->
+    </div>
+  </div> <!-- // Div Section -->
+
+  <div id="products" class="products-section surface-ground px-4 py-8 md:px-6 lg:px-8"> <!-- // Div Products -->
+    <h2 class="font-bold text-6xl mb-4 text-center">
+      {{ 'PRODUCTS.title' | translate }}</h2>
+    <p class="text-xl mb-6 text-center line-height-3">
+      {{ 'PRODUCTS.description' | translate }}</p>
+    <div class="grid">
+      <!-- Adicione os cartões de produtos aqui -->
+    </div>
+  </div> <!-- // Div Products -->
+
+  <div id="pricing" class="pricing-section surface-ground px-4 py-8 md:px-6 lg:px-8"> <!-- Div Pricing -->
+    <h2 class="font-bold text-6xl mb-4 text-center">{{ 'PRICING.title' | translate }}</h2>
+    <p class="text-xl mb-6 text-center line-height-3">{{ 'PRICING.description' | translate }}</p>
+    <div class="grid">
+      <div class="col-12 lg:col-4">
+        <div class="p-3 h-full">
+          <div class="shadow-2 p-3 h-full flex flex-column surface-card" style="border-radius: 6px">
+            <h3 class="font-medium text-xl mb-2">{{ 'PRICING.basic.title' | translate }}</h3>
+            <p class="">{{ 'PRICING.basic.description' | translate }}</p>
+            <hr class="my-3 mx-0 border-top-1 border-none surface-border" />
+            <div class="flex align-items-center">
+              <span class="font-bold text-2xl">{{ 'PRICING.basic.price' | translate }}</span>
+              <span class="ml-2 font-medium">{{ 'PRICING.basic.perMonth' | translate }}</span>
+            </div>
+            <hr class="my-3 mx-0 border-top-1 border-none surface-border" />
+            <ul class="list-none p-0 m-0 flex-grow-1">
+              <li class="flex align-items-center mb-3">
+                <i class="pi pi-check-circle text-green-500 mr-2"></i>
+                <span class="">{{ 'PRICING.basic.features.serviceScheduling' | translate }}</span>
+              </li>
+              <li class="flex align-items-center mb-3">
+                <i class="pi pi-check-circle text-green-500 mr-2"></i>
+                <span class="">{{ 'PRICING.basic.features.petRegistration' | translate }}</span>
+              </li>
+              <li class="flex align-items-center mb-3">
+                <i class="pi pi-check-circle text-green-500 mr-2"></i>
+                <span class="">{{ 'PRICING.basic.features.serviceHistory' | translate }}</span>
+              </li>
+            </ul>
+            <hr class="mb-3 mx-0 border-top-1 border-none surface-border mt-auto" />
+            <button pButton pRipple label="{{ 'PRICING.basic.buyNow' | translate }}"
+              class="p-3 w-full mt-auto"></button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 lg:col-4">
+        <div class="p-3 h-full">
+          <div class="shadow-2 p-3 h-full flex flex-column surface-card" style="border-radius: 6px">
+            <h3 class="font-medium text-xl mb-2">{{ 'PRICING.premium.title' | translate }}</h3>
+            <p>{{ 'PRICING.premium.description' | translate }}</p>
+            <hr class="my-3 mx-0 border-top-1 border-none surface-border" />
+            <div class="flex align-items-center">
+              <span class="font-bold text-2xl">{{ 'PRICING.premium.price' | translate }}</span>
+              <span class="ml-2 font-medium">{{ 'PRICING.premium.perMonth' | translate }}</span>
+            </div>
+            <hr class="my-3 mx-0 border-top-1 border-none surface-border" />
+            <ul class="list-none p-0 m-0 flex-grow-1">
+              <li class="flex align-items-center mb-3">
+                <i class="pi pi-check-circle text-green-500 mr-2"></i>
+                <span class="">{{ 'PRICING.premium.features.allBasicFeatures' | translate }}</span>
+              </li>
+              <li class="flex align-items-center mb-3">
+                <i class="pi pi-check-circle text-green-500 mr-2"></i>
+                <span class="">{{ 'PRICING.premium.features.ecommerce' | translate }}</span>
+              </li>
+              <li class="flex align-items-center mb-3">
+                <i class="pi pi-check-circle text-green-500 mr-2"></i>
+                <span class="">{{ 'PRICING.premium.features.notifications' | translate }}</span>
+              </li>
+              <li class="flex align-items-center mb-3">
+                <i class="pi pi-check-circle text-green-500 mr-2"></i>
+                <span class="">{{ 'PRICING.premium.features.prioritySupport' | translate }}</span>
+              </li>
+            </ul>
+            <hr class="mb-3 mx-0 border-top-1 border-none surface-border mt-auto" />
+            <button pButton pRipple label="{{ 'PRICING.premium.buyNow' | translate }}" class="p-3 w-full"></button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 lg:col-4">
+        <div class="p-3 h-full">
+          <div class="shadow-2 p-3 flex flex-column surface-card" style="border-radius: 6px">
+            <h3 class="font-medium text-xl mb-2">{{ 'PRICING.enterprise.title' | translate }}</h3>
+            <p class="">{{ 'PRICING.enterprise.description' | translate }}</p>
+            <hr class="my-3 mx-0 border-top-1 border-none surface-border" />
+            <div class="flex align-items-center">
+              <span class="font-bold text-2xl">{{ 'PRICING.enterprise.price' | translate }}</span>
+              <span class="ml-2 font-medium">{{ 'PRICING.enterprise.perMonth' | translate }}</span>
+            </div>
+            <hr class="my-3 mx-0 border-top-1 border-none surface-border" />
+            <ul class="list-none p-0 m-0 flex-grow-1">
+              <li class="flex align-items-center mb-3">
+                <i class="pi pi-check-circle text-green-500 mr-2"></i>
+                <span class="">{{ 'PRICING.enterprise.features.allPremiumFeatures' | translate }}</span>
+              </li>
+              <li class="flex align-items-center mb-3">
+                <i class="pi pi-check-circle text-green-500 mr-2"></i>
+                <span class="">{{ 'PRICING.enterprise.features.allPremiumFeatures' | translate }}</span>
+              </li>
+              <li class="flex align-items-center mb-3">
+                <i class="pi pi-check-circle text-green-500 mr-2"></i>
+                <span class="">{{ 'PRICING.enterprise.features.inventoryManagement' | translate }}</span>
+              </li>
+              <li class="flex align-items-center mb-3">
+                <i class="pi pi-check-circle text-green-500 mr-2"></i>
+                <span class="">{{ 'PRICING.enterprise.features.salesReports' | translate }}</span>
+              </li>
+              <li class="flex align-items-center mb-3">
+                <i class="pi pi-check-circle text-green-500 mr-2"></i>
+                <span class="">{{ 'PRICING.enterprise.features.vipAccess' | translate }}</span>
+              </li>
+            </ul>
+            <hr class="mb-3 mx-0 border-top-1 border-none surface-border" />
+            <button pButton pRipple label="{{ 'PRICING.enterprise.buyNow' | translate }}" class="p-3 w-full"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> <!-- Div Pricing -->
+</div> <!-- // Container Principal -->

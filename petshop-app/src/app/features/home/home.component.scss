@@ -1,0 +1,51 @@
+/* home.component.scss */
+@use 'sass:math';
+@import './../../../assets/scss/variables';
+
+.home-container {
+  .hero-section {
+    background-color: $background-color-light;
+    padding: $spacing-unit * 4 0;
+
+    .text-primary {
+      color: $primary-color;
+    }
+
+    ::ng-deep .p-button {
+      background-color: $primary-color;
+      border: 1px solid $primary-color;
+      &:hover {
+        background-color: darken($primary-color, 10%);
+      }
+    }
+  }
+
+  .products-section,
+  .pricing-section {
+    padding: $spacing-unit * 4 0;
+
+    .surface-card {
+      background-color: $background-color-light;
+      border-radius: $border-radius;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    ::ng-deep .p-button {
+      background-color: $primary-color;
+      border: none;
+      &:hover {
+        background-color: darken($primary-color, 10%);
+      }
+    }
+
+    :host ::ng-deep .p-button-outlined {
+      border: 1px solid $primary-color;
+      color: $primary-color;
+      &:hover {
+        background-color: $primary-color;
+        color: $color-white;
+      }
+    }
+  }
+}
+

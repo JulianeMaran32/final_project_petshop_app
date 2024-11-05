@@ -1,17 +1,63 @@
+@use 'sass:math';
+
 // PrimeNG
 @import "../node_modules/primeng/resources/primeng.min.css";
 @import "../node_modules/primeflex/primeflex.scss";
 @import "../node_modules/primeicons/primeicons.css";
 
-// styles.scss
-// @import '~@fortawesome/fontawesome-free/scss/fontawesome';
-// @import '~@fortawesome/fontawesome-free/scss/solid';
-// @import '~@fortawesome/fontawesome-free/scss/regular';
-// @import '~@fortawesome/fontawesome-free/scss/brands';
-
 // Configurações Globais da aplicação
+@import './assets/scss/variables';
 @import './assets/scss/reset';
 
 @layer normalize, primeng;
 
 @import "normalize.css" layer(normalize-reset);
+
+// Global styles
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+main {
+  padding: $spacing-unit;
+}
+
+.app-container {
+  padding: $spacing-unit;
+
+  @include respond-to-xs {
+    padding: math.div($spacing-unit, 2);
+  }
+
+  @include respond-to-sm {
+    padding: $spacing-unit;
+  }
+
+  @include respond-to-md {
+    padding: math.div($spacing-unit * 3, 2);
+  }
+
+  @include respond-to-lg {
+    padding: $spacing-unit * 2;
+  }
+}
+
+// Configurações temas claro/escuro
+:root {
+  --primary-color: #FF6F61;
+  --background-color: #ffffff;
+  --text-color: #333333;
+}
+
+[data-theme="dark"] {
+  --background-color: #333333;
+  --text-color: #ffffff;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

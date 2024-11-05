@@ -1,41 +1,59 @@
-import { Component, OnInit } from '@angular/core';
-import { ButtonModule } from 'primeng/button';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { UserEditModalComponent } from "../user-edit-modal/user-edit-modal.component";
-import { UserService } from '../../../core/services/user.service';
+import { Component, OnInit } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { LoggerService } from '../../../core/services/logger.service';
+import { UserService } from '../../../core/services/user.service';
+import { TabViewModule } from 'primeng/tabview';
+import { AuthService } from '../../../core/services/auth.service';
 import { UserResponse } from '../../../shared/models/user/user-response.model';
+import { ProfilePictureComponent } from "../../profile-picture/profile-picture.component";
+import { UploadComponent } from '../../upload/upload.component';
 
 @Component({
   selector: 'app-user-profile',
   standalone: true,
   imports: [
-    CommonModule, FormsModule, ReactiveFormsModule,
-    ButtonModule,
-    UserEditModalComponent
+    CommonModule,
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
+    TabViewModule,
+    ProfilePictureComponent,
+    UploadComponent
   ],
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.scss'],
-  providers: [UserService, LoggerService]
+  providers: [UserService, LoggerService, AuthService],
 })
-export class UserProfileComponent {
+export class UserProfileComponent implements OnInit {
 
-  user = {
-    name: 'João Silva',
-    email: 'joao.silva@example.com',
-    phone: '1234-5678'
-  };
+  user!: UserResponse;
 
-  displayEditModal = false;
+  constructor(
+    private authService: AuthService,
+    private logger: LoggerService
+  ) { }
 
-  openEditModal() {
-    this.displayEditModal = true;
+  ngOnInit(): void {
+    this.loadUserProfile();
   }
 
-  updateUser(updatedUser: any) {
-    this.user = { ...this.user, ...updatedUser };
-    this.displayEditModal = false;
+  loadUserProfile(): void {
+    this.authService.getCurrentUser().subscribe({
+      next: (user: UserResponse) => {
+        this.user = user;
+        this.logger.info('Dados do usuário carregados com sucesso', user);
+      },
+      error: (error) => {
+        this.logger.error('Erro ao carregar dados do usuário', error);
+      }
+    });
   }
-  
+
+  onUploadComplete(url: string): void {
+    this.user.profilePic = url;
+    this.logger.info('Foto do perfil atualizada com sucesso', url);
+  }
+
 }

@@ -1,0 +1,104 @@
+@use 'sass:math';
+@import './../../../../assets/scss/variables';
+
+.appointment-form {
+    font-family: $font-family-base;
+    background-color: $background-color-light;
+    padding: math.div($spacing-unit, 2);
+    border-radius: $border-radius;
+    box-shadow: 0 2px 4px rgba($color-black, 0.1);
+    max-width: 600px; // Define a largura máxima do formulário
+    margin: auto; // Centraliza o formulário horizontalmente
+    margin-top: $spacing-unit * 4; // Adiciona espaço superior para centralizar verticalmente
+    margin-bottom: $spacing-unit * 4; // Adiciona espaço inferior para separar do rodapé
+
+    fieldset {
+        border: 1px solid $primary-color;
+        padding: $spacing-unit;
+        border-radius: $border-radius;
+    }
+
+    legend {
+        font-size: 1.5em;
+        color: $primary-color;
+        margin-bottom: $spacing-unit;
+    }
+
+    .form-group {
+        margin-bottom: $spacing-unit * 2;
+
+        label {
+            display: block;
+            margin-bottom: math.div($spacing-unit, 2);
+            color: $text-color-light;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: math.div($spacing-unit, 2);
+            border: 1px solid $text-color-light;
+            border-radius: $border-radius;
+            font-size: 1em;
+        }
+
+        .form-text {
+            font-size: 0.875em;
+            color: $text-color-light;
+        }
+
+        .error-message {
+            font-size: 0.75em;
+            color: red;
+            margin-top: math.div($spacing-unit, 2);
+        }
+    }
+
+    button {
+        background-color: $primary-color;
+        color: $color-white;
+        padding: $spacing-unit;
+        border: none;
+        border-radius: $border-radius;
+        font-size: 1em;
+        cursor: pointer;
+
+        &:hover {
+            background-color: darken($primary-color, 10%);
+        }
+
+        &:focus {
+            outline: 2px solid $secondary-color;
+            outline-offset: 2px;
+        }
+    }
+
+    @include respond-to-xs {
+        padding: $spacing-unit;
+
+        .form-group {
+            margin-bottom: $spacing-unit;
+        }
+
+        button {
+            width: 100%;
+        }
+    }
+
+    @include respond-to-sm {
+        padding: $spacing-unit * 1.5;
+    }
+
+    @include respond-to-md {
+        padding: $spacing-unit * 2;
+    }
+
+    @include respond-to-lg {
+        padding: $spacing-unit * 2.5;
+    }
+
+    @include respond-to-xl {
+        padding: $spacing-unit * 3;
+    }
+}

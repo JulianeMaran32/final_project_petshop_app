@@ -1,0 +1,52 @@
+<!-- dashboard.component.html -->
+<div class="dashboard-container">
+  <!-- Seção de Gráficos -->
+  <section class="section-grid">
+    <div class="grid">
+      <div class="card">
+        <h3>{{ 'DASHBOARD.SALES' | translate }}</h3>
+        <p-chart type="line" [data]="salesData" [options]="chartOptions" class="chart"></p-chart>
+      </div>
+      <div class="card">
+        <h3>{{ 'DASHBOARD.APPOINTMENTS' | translate }}</h3>
+        <p-chart type="bar" [data]="appointmentsData" [options]="chartOptions" class="chart"></p-chart>
+      </div>
+      <div class="card">
+        <h3>{{ 'DASHBOARD.CUSTOMERS' | translate }}</h3>
+        <p-chart type="doughnut" [data]="clientsData" [options]="chartOptions" class="chart"></p-chart>
+      </div>
+      <div class="card">
+        <h3>{{ 'DASHBOARD.PETS' | translate }}</h3>
+        <p-chart type="pie" [data]="petsData" [options]="chartOptions" class="chart"></p-chart>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção de Ações -->
+  <section class="section-actions">
+    <div class="actions">
+      <div class="card action-card">
+        <h3>Agenda</h3>
+        <p>Próximo atendimento: 15:00</p>
+        <button pButton pRipple routerLink="/calendar" label="Ir para Agenda" icon="pi pi-calendar" class="action-button"></button>
+      </div>
+      <div class="card action-card">
+        <h3>Produtos</h3>
+        <p>Produto em destaque: Ração Premium</p>
+        <img src="./img/premium_dog_food_01.png" alt="Produto em destaque" class="action-image">
+        <button pButton pRipple routerLink="/products" label="Ir para Produtos" icon="pi pi-box" class="action-button"></button>
+      </div>
+      <div class="card action-card">
+        <h3>Funcionários</h3>
+        <p>Funcionário do mês: Maria Júlia</p>
+        <img src="./img/funcionario_do_mes.png" alt="Funcionário do mês" class="action-image">
+        <button pButton pRipple routerLink="/employees"  label="Ir para Funcionários" icon="pi pi-users" class="action-button"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção em Branco -->
+  <section class="section-blank">
+    <!-- Conteúdo futuro -->
+  </section>
+</div>

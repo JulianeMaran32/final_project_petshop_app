@@ -1,0 +1,58 @@
+<form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()" class="appointment-form">
+    <fieldset>
+        <legend>Agendamento de Consulta Veterinária</legend>
+
+        <div class="form-group">
+            <label for="pet">Pet:</label>
+            <select formControlName="petId" id="pet" aria-required="true" aria-describedby="petHelp">
+                <option *ngFor="let pet of pets" [value]="pet.id">{{ pet.name }}</option>
+            </select>
+            <div id="petHelp" class="form-text">Selecione o nome do pet.</div>
+            <div *ngIf="appointmentForm.get('petId')?.errors?.['required'] && (appointmentForm.get('petId')?.dirty || appointmentForm.get('petId')?.touched)"
+                class="error-message">
+                Nome do Pet é obrigatório.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="date">Data:</label>
+            <input id="date" formControlName="date" type="date" required aria-required="true"
+                aria-describedby="dateHelp">
+            <div id="dateHelp" class="form-text">Selecione a data da consulta.</div>
+            <div *ngIf="appointmentForm.get('date')?.errors?.['required'] && (appointmentForm.get('date')?.dirty || appointmentForm.get('date')?.touched)"
+                class="error-message">
+                Data é obrigatória.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="time">Hora:</label>
+            <input id="time" formControlName="time" type="time" required aria-required="true"
+                aria-describedby="timeHelp">
+            <div id="timeHelp" class="form-text">Selecione a hora da consulta.</div>
+            <div *ngIf="appointmentForm.get('time')?.errors?.['required'] && (appointmentForm.get('time')?.dirty || appointmentForm.get('time')?.touched)"
+                class="error-message">
+                Hora é obrigatória.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="veterinarian">Médico Veterinário:</label>
+            <input id="veterinarian" formControlName="veterinarian" type="text" required aria-required="true"
+                aria-describedby="vetHelp">
+            <div id="vetHelp" class="form-text">Informe o nome do médico veterinário.</div>
+            <div *ngIf="appointmentForm.get('veterinarian')?.errors?.['required'] && (appointmentForm.get('veterinarian')?.dirty || appointmentForm.get('veterinarian')?.touched)"
+                class="error-message">
+                Médico Veterinário é obrigatório.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Descrição (opcional):</label>
+            <textarea id="description" formControlName="description" aria-describedby="descHelp"></textarea>
+            <div id="descHelp" class="form-text">Informe uma descrição adicional, se necessário.</div>
+        </div>
+
+        <button type="submit" aria-label="Salvar agendamento">Salvar</button>
+    </fieldset>
+</form>

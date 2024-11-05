@@ -1,40 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UserProfileComponent } from './user-profile/user-profile.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { UserEditModalComponent } from './user-edit-modal/user-edit-modal.component';
-import { UserSettingsComponent } from './user-settings/user-settings.component';
-import { ButtonModule } from 'primeng/button';
-import { CalendarModule } from 'primeng/calendar';
-import { CardModule } from 'primeng/card';
-import { DropdownModule } from 'primeng/dropdown';
-import { FileUploadModule } from 'primeng/fileupload';
-import { InputTextModule } from 'primeng/inputtext';
-import { CheckboxModule } from 'primeng/checkbox';
-import { PasswordModule } from 'primeng/password';
+import { RouterModule } from '@angular/router';
+import { TabViewModule } from 'primeng/tabview';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserService } from '../../core/services/user.service';
+import { LoggerService } from '../../core/services/logger.service';
+import { AuthService } from '../../core/services/auth.service';
 
 @NgModule({
-  declarations: [ ],
+  declarations: [],
   imports: [
     CommonModule,
+    RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    CardModule,
-    FileUploadModule,
-    InputTextModule,
-    CalendarModule,
-    DropdownModule,
-    ButtonModule,
-    CheckboxModule,
-    PasswordModule,
     UserProfileComponent,
-    UserEditModalComponent,
-    UserSettingsComponent
+    TabViewModule,
   ],
   exports: [
-    UserProfileComponent,
-    UserEditModalComponent,
-    UserSettingsComponent
-  ]
+    UserProfileComponent
+  ],
+  providers: [UserService, LoggerService, AuthService],
 })
 export class UsersModule { }

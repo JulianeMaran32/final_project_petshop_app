@@ -1,129 +1,68 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './features/home/home/home.component';
-import { RegisterComponent } from './features/auth/register/register.component';
-import { LoginComponent } from './features/auth/login/login.component';
-import { SuperAdminDashboardComponent } from './features/admin/super-admin-dashboard/super-admin-dashboard.component';
-import { NotFoundComponent } from './shared/components/not-found/not-found.component';
-import { AdminDashboardComponent } from './features/admin/admin-dashboard/admin-dashboard.component';
 import { roleGuard } from './core/guards/role.guard';
-import { AboutComponent } from './features/info/about/about.component';
-import { ContactComponent } from './features/info/contact/contact.component';
-import { TermsOfServiceComponent } from './features/info/terms-of-service/terms-of-service.component';
-import { PrivacyPolicyComponent } from './features/info/privacy-policy/privacy-policy.component';
 import { authGuard } from './core/guards/auth.guard';
-import { ForgotPasswordComponent } from './features/auth/forgot-password/forgot-password.component';
-import { ResetPasswordComponent } from './features/auth/reset-password/reset-password.component';
-import { ProductsComponent } from './features/products/products/products.component';
+import { HomeComponent } from './features/home/home.component';
+import { LoginComponent } from './features/login/login.component';
+import { UserFormComponent } from './features/user-form/user-form.component';
+import { ForgotPasswordComponent } from './features/forgot-password/forgot-password.component';
+import { DashboardComponent } from './features/dashboard/dashboard.component';
+import { PetListComponent } from './features/pets/pet-list/pet-list.component';
+import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 import { UserProfileComponent } from './features/users/user-profile/user-profile.component';
-import { PetshopComponent } from './features/shop/petshop/petshop.component';
-import { UserSettingsComponent } from './features/users/user-settings/user-settings.component';
-import { PetshopCalendarComponent } from './features/calendar/petshop-calendar/petshop-calendar.component';
-import { PetFormComponent } from './features/pets/pet-form/pet-form.component';
+import { CalendarComponent } from './features/calendar/calendar/calendar.component';
+import { AppointmentFormComponent } from './features/appointments/appointment-form/appointment-form.component';
 
 export const routes: Routes = [
-    { 
-        path: '', 
-        redirectTo: 'home', 
-        pathMatch: 'full' 
+    {
+        path: '', redirectTo: 'home', pathMatch: 'full'
     },
-    { 
-        path: 'home', 
-        component: HomeComponent 
+    {
+        path: 'home',
+        component: HomeComponent
     },
-    // FOOTER
-    { 
-        path: 'about', 
-        component: AboutComponent 
+    {
+        path: 'login',
+        component: LoginComponent
     },
-    { 
-        path: 'contact', 
-        component: ContactComponent 
+    {
+        path: 'register',
+        component: UserFormComponent
     },
-    { 
-        path: 'terms-of-service', 
-        component: TermsOfServiceComponent 
+    {
+        path: 'forgot-password',
+        component: ForgotPasswordComponent
     },
-    { 
-        path: 'privacy-policy', 
-        component: PrivacyPolicyComponent 
+    {
+        path: 'dashboard',
+        component: DashboardComponent,
+        canActivate: [authGuard, roleGuard],
+        data: {
+            roles: ['SUPER_ADMIN', 'ADMIN']
+        }
     },
-    // NOT AUTHENTICATION
-    { 
-        path: 'register', 
-        component: RegisterComponent 
+    {
+        path: 'pet-list',
+        component: PetListComponent,
+        canActivate: [authGuard]
     },
-    { 
-        path: 'login', 
-        component: LoginComponent 
+    {
+        path: 'calendar',
+        component: CalendarComponent,
+        canActivate: [authGuard],
     },
-    { 
-        path: 'forgot-password', 
-        component: ForgotPasswordComponent 
+    {
+        path: 'appointments',
+        component: AppointmentFormComponent,
+        canActivate: [authGuard],
     },
-    { 
-        path: 'reset-password', 
-        component: ResetPasswordComponent 
+    {
+        path: 'user-profile',
+        component: UserProfileComponent,
+        canActivate: [authGuard],
     },
-    // ADMINS
-    { 
-        path: 'super-admin', 
-        component: SuperAdminDashboardComponent, 
-        canActivate: [authGuard, roleGuard], 
-        data: { 
-            roles: ['ROLE_SUPER_ADMIN'] 
-        } 
-    },
-    { 
-        path: 'admin', 
-        component: AdminDashboardComponent, 
-        canActivate: [authGuard, roleGuard], 
-        data: { 
-            roles: ['ROLE_ADMIN'] 
-        } 
-    },
-    // PRODUCTS
-    { 
-        path: 'products', 
-        component: ProductsComponent
-    },
-    { 
-        path: 'petshop', 
-        component: PetshopComponent
-    },
-    { 
-        path: 'user-profile', 
-        component: UserProfileComponent
-    },
-    // USERS
-    { 
-        path: 'settings', 
-        component: UserSettingsComponent
-        // canActivate: [authGuard]
-    },
-    // CALENDAR
-    { 
-        path: 'calendar', 
-        component: PetshopCalendarComponent
-    },
-    { 
-        path: 'pet-form', 
-        component: PetFormComponent
-    },
-    // { 
-    //     path: 'schedule/services', 
-    //     component: PetshopCalendarComponent, 
-    //     canActivate: [authGuard, roleGuard], 
-    //     data: { 
-    //         roles: [
-    //             'ROLE_SUPER_ADMIN', 'ROLE_ADMIN', 
-    //             'ROLE_USER', 'ROLE_OWNER', 'ROLE_CUSTOMER', 
-    //             'ROLE_EMPLOYEE', 'ROLE_VETERINARIAN'
-    //         ]
-    //     } 
-    // },
     // NOT FOUND
-    { 
-        path: '**', 
-        component: NotFoundComponent 
+    {
+        path: '**',
+        component: NotFoundComponent
     }
 ];
