@@ -1,21 +1,39 @@
-<footer>
-    <div class="footer-container">
-            <div class="footer-logo">
-                    <a routerLink="/">PetFlow</a>
-            </div>
-            <div class="footer-links">
-                    <a routerLink="/about">Sobre</a>
-                    <a routerLink="/contact">Contato</a>
-                    <a routerLink="/privacy-policy">Política de Privacidade</a>
-                    <a routerLink="/terms-of-service">Termos de Serviço</a>
-            </div>
-            <div class="footer-social">
-                    <a href="https://www.facebook.com/"><i class="pi pi-facebook" aria-hidden="true"></i></a>
-                    <a href="https://www.instagram.com/"><i class="pi pi-instagram" aria-hidden="true"></i></a>
-                    <a href="https://www.linkedin.com/"><i class="pi pi-linkedin" aria-hidden="true"></i></a>
-            </div>
-    </div>
-    <p>
-            &copy; {{ currentYear }} PetFlow. Todos os direitos reservados.
-    </p>
+<!-- footer.component.html -->
+<footer class="footer-container">
+        <div class="footer-content">
+                <!-- <div class="footer-section">
+                        <h3>Suporte</h3>
+                        <ul>
+                                <li><a routerLink="/contact">Contatos</a></li>
+                                <li><a routerLink="/about">Sobre</a></li>
+                        </ul>
+                </div>
+                <div class="footer-section">
+                        <h3>Termos</h3>
+                        <ul>
+                                <li><a routerLink="/terms-of-service">Termos de Uso</a></li>
+                                <li><a routerLink="/services">Serviços</a></li>
+                                <li><a routerLink="/privacy-policy">Privacidade</a></li>
+                        </ul>
+                </div>
+                <div class="footer-section">
+                        <h3>Produtos</h3>
+                        <ul>
+                                <li><a routerLink="/products">Produtos</a></li>
+                                <li><a routerLink="/pricing">Preços</a></li>
+                        </ul>
+                </div>
+                <div class="footer-section">
+                        <h3>Redes Sociais</h3>
+                        <ul class="social-links">
+                                <li><a href="#" aria-label="Facebook"><i class="pi pi-facebook"></i></a></li>
+                                <li><a href="#" aria-label="Twitter"><i class="pi pi-twitter"></i></a></li>
+                                <li><a href="#" aria-label="Instagram"><i class="pi pi-instagram"></i></a></li>
+                                <li><a href="#" aria-label="LinkedIn"><i class="pi pi-linkedin"></i></a></li>
+                        </ul>
+                </div> -->
+        </div>
+        <div class="footer-bottom">
+                <p>&copy; {{ currentYear }} Petshop. {{ 'FOOTER.copy' | translate }}</p>
+        </div>
 </footer>

@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-footer',
@@ -10,16 +11,25 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     RouterModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TranslateModule
   ],
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.scss']
+  styleUrls: ['./footer.component.scss'],
+  providers: [TranslateService]
 })
 export class FooterComponent {
 
+  translationKey = {
+    privacyPolicy: 'FOOTER.privacyPolicy',
+    termsOfUse: 'FOOTER.termsOfUse',
+    contactUs: 'FOOTER.contactUs',
+    copy: 'FOOTER.copy'
+  }
+
   currentYear: number;
 
-  constructor() {
+  constructor(private translate: TranslateService) {
     this.currentYear = new Date().getFullYear();
   }
 

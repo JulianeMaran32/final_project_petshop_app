@@ -1,167 +1,32 @@
-<header class="header" role="banner">
-  <div class="header__content">
-    <img src="#" alt="Logo" class="header__logo" aria-label="Logo">
-    <button class="header__menu-button" aria-label="Menu" 
-        [attr.aria-expanded]="isMenuOpen" aria-controls="nav" (click)="toggleMenu()">
-      <i class="pi pi-bars" aria-hidden="true"></i>
-    </button>
-    <nav class="header__nav" id="nav" role="navigation" [class.is-open]="isMenuOpen">
-      <ul class="header__nav-list">
-        <li class="header__nav-item">
-          <a routerLink="/" class="header__nav-link" *ngIf="!isAuthenticated">
-            <i class="pi pi-home" aria-hidden="true"></i> 
-            Inicial
-          </a>
-        </li>
-        <li class="header__nav-item" *ngIf="isAuthenticated && hasRole('ROLE_SUPER_ADMIN')">
-          <a routerLink="/super-admin" class="header__nav-link">
-            <i class="pi pi-home" aria-hidden="true"></i> 
-            Dashboard
-          </a>
-        </li>
-        <li class="header__nav-item" *ngIf="isAuthenticated && hasRole('ROLE_ADMIN')">
-          <a routerLink="/admin" class="header__nav-link">
-            <i class="pi pi-home" aria-hidden="true"></i> 
-            Dashboard Admin
-          </a>
-        </li>
-        <li class="header__nav-item">
-          <a href="#" class="header__nav-link" aria-haspopup="true" aria-expanded="false" *ngIf="!isAuthenticated">
-            <i class="pi pi-shop" aria-hidden="true"></i> 
-            Petshop
-            <i class="pi pi-angle-down" aria-hidden="true"></i>
-          </a>
-          <ul class="header__dropdown" role="menu">
-            <li>
-              <a routerLink="/petshop" class="header__dropdown-link" role="menuitem">
-                <i class="pi pi-barcode" aria-hidden="true"></i> 
-                Loja
-              </a>
-            </li>
-            <li>
-              <a routerLink="/products" class="header__dropdown-link" role="menuitem">
-                <i class="pi pi-barcode" aria-hidden="true"></i> 
-                Produtos
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="header__nav-item" *ngIf="isAuthenticated && (hasRole('ROLE_SUPER_ADMIN') || hasRole('ROLE_ADMIN') || hasRole('ROLE_EMPLOYEE') || hasRole('ROLE_VETERINARIAN') || hasRole('ROLE_CUSTOMER'))">
-          <a routerLink="/pets" class="header__nav-link">
-            <i class="pi pi-barcode" aria-hidden="true"></i> 
-            Animais
-          </a>
-        </li>
-        <li class="header__nav-item header__nav-item--dropdown" *ngIf="isAuthenticated && (hasRole('ROLE_SUPER_ADMIN') || hasRole('ROLE_ADMIN'))">
-          <a href="#" class="header__nav-link" aria-haspopup="true" [attr.aria-expanded]="isDropdownOpen('users')" (click)="toggleDropdown($event, 'users')">
-            <i class="pi pi-users" aria-hidden="true"></i> 
-            Usuários 
-            <i class="pi pi-angle-down" aria-hidden="true"></i>
-          </a>
-          <ul class="header__dropdown" role="menu" [class.is-open]="isDropdownOpen('users')">
-            <li>
-              <a routerLink="/users/customers" class="header__dropdown-link" role="menuitem">
-                <i class="pi pi-user-plus" aria-hidden="true"></i> 
-                Cliente
-              </a>
-            </li>
-            <li>
-              <a routerLink="/users/veterinarians" class="header__dropdown-link" role="menuitem">
-                <i class="pi pi-user-plus" aria-hidden="true"></i> 
-                Médico Veterinário
-              </a>
-            </li>
-            <li>
-              <a routerLink="/users/employees" class="header__dropdown-link" role="menuitem">
-                <i class="pi pi-user-plus" aria-hidden="true"></i> 
-                Funcionário
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="header__nav-item header__nav-item--dropdown" *ngIf="isAuthenticated && (hasRole('ROLE_SUPER_ADMIN') || hasRole('ROLE_ADMIN') || hasRole('ROLE_EMPLOYEE') || hasRole('ROLE_VETERINARIAN') || hasRole('ROLE_CUSTOMER'))">
-          <a href="#" class="header__nav-link" aria-haspopup="true" [attr.aria-expanded]="isDropdownOpen('schedule')" (click)="toggleDropdown($event, 'schedule')">
-            <i class="pi pi-calendar" aria-hidden="true"></i> 
-            Agendamentos
-            <i class="pi pi-angle-down" aria-hidden="true"></i>
-          </a>
-          <ul class="header__dropdown" role="menu" [class.is-open]="isDropdownOpen('schedule')">
-            <li>
-              <a routerLink="/schedule/vets" class="header__dropdown-link" role="menuitem">
-                <i class="pi pi-calendar-clock" aria-hidden="true"></i> 
-                Consultas
-              </a>
-            </li>
-            <li>
-              <a routerLink="/schedule/services" class="header__dropdown-link" role="menuitem">
-                <i class="pi pi-calendar-clock" aria-hidden="true"></i> 
-                Serviços
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="header__nav-item" *ngIf="isAuthenticated && (hasRole('ROLE_SUPER_ADMIN') || hasRole('ROLE_ADMIN'))">
-          <a routerLink="/analytics" class="header__nav-link">
-            <i class="pi pi-chart-bar" aria-hidden="true"></i> 
-            Análises
-          </a>
-        </li>
-        <li class="header__nav-item header__nav-item--dropdown" *ngIf="isAuthenticated && (hasRole('ROLE_SUPER_ADMIN') || hasRole('ROLE_ADMIN'))">
-          <a href="#" class="header__nav-link" aria-haspopup="true" aria-expanded="false">
-            <i class="pi pi-chart-line" aria-hidden="true"></i> 
-            Relatórios
-            <i class="pi pi-angle-down" aria-hidden="true"></i>
-          </a>
-          <ul class="header__dropdown" role="menu">
-            <li>
-              <a routerLink="/reports/despesas" class="header__dropdown-link" role="menuitem">
-                <i class="pi pi-chart-line" aria-hidden="true"></i> 
-                Despesas
-              </a>
-            </li>
-            <li class="header__dropdown-item--nested">
-              <a routerLink="/reports/receitas" class="header__dropdown-link" role="menuitem">
-                <i class="pi pi-chart-line" aria-hidden="true"></i> 
-                Receitas
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="header__nav-item" *ngIf="!isAuthenticated">
-          <a routerLink="/register" class="header__nav-link">
-            <i class="pi pi-user-plus" aria-hidden="true"></i> 
-            Cadastrar
-          </a>
-        </li>
-        <li class="header__nav-item" *ngIf="!isAuthenticated">
-          <a routerLink="/login" class="header__nav-link">
-            <i class="pi pi-sign-in" aria-hidden="true"></i> 
-            Entrar
-          </a>
-        </li>
-        <li class="header__nav-item" *ngIf="isAuthenticated">
-          <a (click)="logout()" class="header__nav-link">
-            <i class="pi pi-sign-out" aria-hidden="true"></i> 
-            Sair
-          </a>
-        </li>
-      </ul>
-    </nav>
-    <div class="header__search">
-      <i class="pi pi-search" aria-hidden="true"></i>
-      <input type="text" placeholder="Pesquisar" aria-label="Pesquisar">
-    </div>
-    <div class="header__user" *ngIf="isAuthenticated">
-      <a routerLink="/settings">
-        <img src="perfil_cat_01.png" alt="Avatar do Usuário" aria-label="Avatar do Usuário">
-      </a>
-      <div class="header__user-info">
-        <span>{{ user.name }}</span>
-        <span>{{ user.roles }}</span>
-        <button routerLink="/settings" class="header__settings-button" aria-label="Configurações">
-          <i class="pi pi-cog" aria-hidden="true"></i>
-        </button>
-      </div>
-    </div>
-  </div>
-</header>
+<div class="card">
+    <p-menubar [model]="items">
+        <ng-template pTemplate="start">
+            <a routerLink="/" aria-label="Home">
+                <img src="perfil_cat_01.png" alt="Logo">
+            </a>
+        </ng-template>
+        <ng-template pTemplate="end">
+            <div class="p-menubar-end" [ngClass]="{'show': isMenuVisible}">
+
+                <input type="text" pInputText placeholder="{{ 'SEARCH' | translate }}" aria-label="Pesquisar" />
+
+                <button routerLink="/login" *ngIf="!isAuthenticated" pButton label="{{ 'LOGIN' | translate }}" class="p-button-text"
+                    aria-label="Entrar"></button>
+                <button routerLink="/register" *ngIf="!isAuthenticated" pButton label="{{ 'REGISTER' | translate }}"
+                    class="p-button-outlined" aria-label="Cadastrar"></button>
+                <button routerLink="/" *ngIf="isAuthenticated" pButton label="Sair" class="p-button-text"
+                    aria-label="Sair"></button>
+                <p-avatar *ngIf="isAuthenticated" image="#" shape="circle" aria-label="Avatar"></p-avatar>
+
+                <!-- Botão de alternância de tema -->
+                <button type="button" pButton [icon]="isDarkTheme ? 'pi pi-moon' : 'pi pi-sun'" (click)="toggleTheme()"
+                    aria-label="Alterar Tema"></button>
+
+                <button type="button" pButton (click)="toggleLanguage()" aria-label="Alternar idioma">
+                    <i class="pi pi-globe"></i> {{ getLanguageLabel() }}
+                </button>
+                <!-- <button type="button" pButton icon="pi pi-globe" (click)="languageMenu.toggle($event)"></button> -->
+            </div>
+        </ng-template>
+    </p-menubar>
+</div>
