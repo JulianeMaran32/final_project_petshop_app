@@ -1,42 +1,28 @@
-import { HttpErrorResponse, HttpEvent, HttpHandlerFn, HttpInterceptorFn, HttpRequest } from '@angular/common/http';
-import { catchError, Observable, tap, throwError } from 'rxjs';
-import { LoggerService } from '../services/logger.service';
-import { inject } from '@angular/core';
+import { HttpEvent, HttpHandlerFn, HttpInterceptorFn, HttpRequest } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { inject, Injector } from '@angular/core';
+import { AuthService } from '../services/auth.service';
 
-export const authInterceptor: HttpInterceptorFn = (req: HttpRequest<any>, next: HttpHandlerFn): Observable<HttpEvent<any>> => {
+/**
+ * O Auth Interceptor adiciona o Token de Autenticação às requisições HTTP.
+ */
+export const authInterceptor: HttpInterceptorFn = (
+  req: HttpRequest<any>, 
+  next: HttpHandlerFn
+): Observable<HttpEvent<any>> => {
 
-  const logger = inject(LoggerService); 
-  const token = sessionStorage.getItem('authToken');
-
-  logger.info('Interceptando requisição HTTP', { 
-    url: req.url, method: req.method 
-  });
-
-  let clonedRequest = req;
+  const injector = inject(Injector);
+  const authService = injector.get(AuthService);
+  const token = authService.getToken();
 
   if (token) {
-    clonedRequest = req.clone({
+    req = req.clone({
       setHeaders: {
         Authorization: `Bearer ${token}`
       }
     });
-    logger.debug('Token adicionado ao cabeçalho da requisição', { token });
   }
 
-  return next(clonedRequest).pipe(
-    tap({
-      next: (event) => {
-        logger.info('Requisição processada com sucesso', { url: req.url });
-      }
-    }),
-    catchError((error: HttpErrorResponse) => {
-      logger.error('Erro durante o processamento da requisição', { 
-        url: req.url, 
-        status: error.status, 
-        message: error.message 
-      });
-      return throwError(() => new Error(error.message));
-    })
-  );
-  
+  return next(req);
+
 };

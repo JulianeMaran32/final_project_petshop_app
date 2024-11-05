@@ -3,11 +3,14 @@ import { AuthService } from '../services/auth.service';
 import { inject } from '@angular/core';
 import { LoggerService } from '../services/logger.service';
 
+/** 
+ * O AuthGuard verifica se o usuário está autenticado antes de permitir o acesso a uma rota.
+ */
 export const authGuard: CanActivateFn = (route, state) => {
 
   const authService = inject(AuthService);
   const router = inject(Router);
-  const logger = inject(LoggerService); 
+  const logger = inject(LoggerService);
 
   try {
     logger.info('Verificando autenticação do usuário', { route: route.url, state: state.url });
