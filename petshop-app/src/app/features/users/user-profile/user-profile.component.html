@@ -1,58 +1,35 @@
-<div class="settings-container">
-  <!-- Título principal da página -->
-  <header class="settings-header">
-    <h1>Configurações do Usuário</h1>
-  </header>
-
-  <!-- Seção de perfil do usuário -->
-  <section aria-labelledby="profile-section" class="settings-section">
-    <h2 id="profile-section">Perfil</h2>
-    <form>
-      <label for="profile-picture">Imagem de Perfil</label>
-      <input type="file" id="profile-picture" aria-describedby="profile-picture-desc" />
-      <p id="profile-picture-desc">Escolha uma imagem para seu perfil.</p>
-
-      <label for="username">Nome de Usuário</label>
-      <input type="text" id="username" name="username" />
-
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" />
-      
-      <button type="submit">Salvar Alterações</button>
-    </form>
-  </section>
-
-  <!-- Seção de segurança -->
-  <section aria-labelledby="security-section" class="settings-section">
-    <h2 id="security-section">Segurança</h2>
-    <form>
-      <label for="password">Senha Atual</label>
-      <input type="password" id="password" name="password" />
-
-      <label for="new-password">Nova Senha</label>
-      <input type="password" id="new-password" name="new-password" />
-
-      <label for="confirm-password">Confirme a Nova Senha</label>
-      <input type="password" id="confirm-password" name="confirm-password" />
-
-      <button type="submit">Alterar Senha</button>
-    </form>
-  </section>
-
-  <!-- Seção de preferências -->
-  <section aria-labelledby="preferences-section" class="settings-section">
-    <h2 id="preferences-section">Preferências</h2>
-    <form>
-      <label for="notifications">Notificações por Email</label>
-      <input type="checkbox" id="notifications" name="notifications" />
-
-      <label for="theme">Tema</label>
-      <select id="theme" name="theme">
-        <option value="light">Claro</option>
-        <option value="dark">Escuro</option>
-      </select>
-
-      <button type="submit">Salvar Preferências</button>
-    </form>
-  </section>
-</div>
+<header class="header">
+    <h1>Perfil do Usuário</h1>
+</header>
+<main class="profile">
+    <section class="profile-info" *ngIf="user">
+        <app-profile-picture [userProfilePic]="user.profilePic"
+            [petProfilePic]="user.petProfilePic"></app-profile-picture>
+        <h2 class="profile-name">{{ user.name }}</h2>
+        <p class="profile-bio">Bio do usuário...</p>
+    </section>
+    <section class="profile-details" *ngIf="user">
+        <p-tabView>
+            <p-tabPanel header="Detalhes do Perfil">
+                <h3>Detalhes do Perfil</h3>
+                <p>Email: {{ user.email }}</p>
+                <p>Telefone: {{ user.phone }}</p>
+                <p>Endereço: {{ user.addresses }}</p>
+            </p-tabPanel>
+            <p-tabPanel header="Configurações">
+                <h3>Configurações do Usuário</h3>
+                <p>Deve conter: alterar senha, excluir/desativar conta, adicionar/atualizar endereço e outros dados.</p>
+                <app-upload (uploadComplete)="onUploadComplete($event)"></app-upload>
+            </p-tabPanel>
+            <p-tabPanel header="Agendamentos">
+                <h3>Agenda de Serviços e Consultas Veterinárias</h3>
+                <p>Deve conter uma lista de agendamentos do pet, podendo ser filtrado por pet, por serviço ou consulta,
+                    por tipo de serviço/consulta</p>
+            </p-tabPanel>
+            <p-tabPanel header="Meus Pets">
+                <h3>Listas dos Animais de Estimação</h3>
+                <p>Contém uma lista de pets cadastrados do usuário: com opção para editar e excluir </p>
+            </p-tabPanel>
+        </p-tabView>
+    </section>
+</main>
