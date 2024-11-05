@@ -1,0 +1,120 @@
+@use 'sass:math';
+@import './../../../assets/scss/variables';
+
+.dashboard-container {
+  padding: $spacing-unit * 2;
+
+  .section-grid,
+  .section-actions,
+  .section-blank {
+    margin-bottom: $spacing-unit * 2;
+  }
+
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-unit;
+
+    .card {
+      background-color: var(--background-color);
+      border-radius: $border-radius;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: $spacing-unit;
+      text-align: center;
+      flex: 1 1 calc(25% - #{$spacing-unit});
+      max-width: calc(25% - #{$spacing-unit});
+
+      @include respond-to-lg {
+        flex: 1 1 calc(25% - #{$spacing-unit});
+        max-width: calc(25% - #{$spacing-unit});
+      }
+
+      @include respond-to-md {
+        flex: 1 1 calc(33.33% - #{$spacing-unit});
+        max-width: calc(33.33% - #{$spacing-unit});
+      }
+
+      @include respond-to-sm {
+        flex: 1 1 calc(50% - #{$spacing-unit});
+        max-width: calc(50% - #{$spacing-unit});
+      }
+
+      @include respond-to-xs {
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
+
+      h3 {
+        color: $primary-color;
+        margin-bottom: $spacing-unit;
+      }
+
+      :host ::ng-deep .chart {
+        width: 100%;
+        height: 200px;
+      }
+    }
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-unit;
+
+    .action-card {
+      background-color: var(--background-color);
+      border-radius: $border-radius;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: $spacing-unit;
+      text-align: center;
+      flex: 1 1 calc(33.33% - #{$spacing-unit});
+      max-width: calc(33.33% - #{$spacing-unit});
+
+      @include respond-to-lg {
+        flex: 1 1 calc(33.33% - #{$spacing-unit});
+        max-width: calc(33.33% - #{$spacing-unit});
+      }
+
+      @include respond-to-md {
+        flex: 1 1 calc(50% - #{$spacing-unit});
+        max-width: calc(50% - #{$spacing-unit});
+      }
+
+      @include respond-to-sm {
+        flex: 1 1 calc(50% - #{$spacing-unit});
+        max-width: calc(50% - #{$spacing-unit});
+      }
+
+      @include respond-to-xs {
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
+
+      h3 {
+        color: $primary-color;
+        margin-bottom: $spacing-unit;
+      }
+
+      p {
+        margin-bottom: $spacing-unit;
+      }
+
+      .action-image {
+        width: 100%;
+        height: auto;
+        margin-bottom: $spacing-unit;
+      }
+
+      .action-button {
+        background-color: $primary-color;
+        border: none;
+        padding: $spacing-unit;
+        width: 100%;
+
+        &:hover {
+          background-color: darken($primary-color, 10%);
+        }
+      }
+    }
+  }
+}
