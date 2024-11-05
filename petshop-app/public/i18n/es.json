@@ -1,0 +1,79 @@
+{
+    "LOGIN": "Iniciar sesión",
+    "REGISTER": "Registrarse",
+    "LOGOUT": "Cerrar sesión",
+    "SCHEDULING": "Programación",
+    "PROFILE": "Perfil",
+    "SETTINGS": "Configuraciones",
+    "SEARCH": "Buscar...",
+    "NOT_FOUND": {
+        "errorCode": "404",
+        "errorTitle": "Página No Encontrada",
+        "errorMessage": "Lo siento, no pudimos encontrar la página.",
+        "goBack": "Volver",
+        "goToDashboard": "Volver al Dashboard"
+    },
+    "HOME": {
+        "welcome": "Bienvenido a PetConnect",
+        "manage": "Administra tu Petshop con Eficiencia",
+        "explore": "Explora nuestra plataforma para la programación de servicios, venta de productos y mucho más.",
+        "register": "Regístrate"
+    },
+    "PRODUCTS": {
+        "title": "Nuestros Productos",
+        "description": "Descubre nuestra gama de productos de alta calidad para tus mascotas."
+    },
+    "PRICING": {
+        "title": "Planes de Precios",
+        "description": "Elige el mejor plan que se adapte a tus necesidades.",
+        "basic": {
+            "title": "Básico",
+            "description": "Ideal para pequeños petshops que necesitan recursos esenciales.",
+            "price": "R$9",
+            "perMonth": "por mes",
+            "features": {
+                "serviceScheduling": "Programación de servicios",
+                "petRegistration": "Registro de mascotas",
+                "serviceHistory": "Historial de servicios"
+            },
+            "buyNow": "Comprar Ahora"
+        },
+        "premium": {
+            "title": "Premium",
+            "description": "Para petshops que desean más beneficios y recursos avanzados.",
+            "price": "R$29",
+            "perMonth": "por mes",
+            "features": {
+                "allBasicFeatures": "Todos los recursos del plan Básico",
+                "ecommerce": "E-commerce de productos",
+                "notifications": "Notificaciones y recordatorios automáticos",
+                "prioritySupport": "Soporte prioritario"
+            },
+            "buyNow": "Comprar Ahora"
+        },
+        "enterprise": {
+            "title": "Enterprise",
+            "description": "Para grandes petshops que necesitan soluciones completas y personalizadas.",
+            "price": "R$49",
+            "perMonth": "por mes",
+            "features": {
+                "allPremiumFeatures": "Todos los recursos del plan Premium",
+                "inventoryManagement": "Gestión de inventario",
+                "salesReports": "Informes de ventas",
+                "personalConsulting": "Consultoría personalizada",
+                "vipAccess": "Acceso a eventos VIP"
+            },
+            "buyNow": "Comprar Ahora"
+        }
+    },
+    "FOOTER": {
+        "copy": "Todos los derechos reservados."
+    },
+    "DASHBOARD": {
+        "TITLE": "Tablero",
+        "SALES": "Ventas",
+        "APPOINTMENTS": "Citas",
+        "CUSTOMERS": "Clientes",
+        "PETS": "Mascotas"
+    }
+}

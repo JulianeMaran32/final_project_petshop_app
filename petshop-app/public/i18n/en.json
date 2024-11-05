@@ -1,0 +1,80 @@
+{
+    "LOGIN": "Login",
+    "REGISTER": "Register",
+    "LOGOUT": "Logout",
+    "SCHEDULING": "Scheduling",
+    "MY_PETS": "My Pets",
+    "PROFILE": "Profile",
+    "SETTINGS": "Settings",
+    "SEARCH": "Search...",
+    "NOT_FOUND": {
+        "errorCode": "404",
+        "errorTitle": "Page Not Found",
+        "errorMessage": "Sorry, we couldn't find the page.",
+        "goBack": "Go Back",
+        "goToDashboard": "Go to Dashboard"
+    },
+    "HOME": {
+        "welcome": "Welcome to PetConnect",
+        "manage": "Manage your Petshop Efficiently",
+        "explore": "Explore our platform for service scheduling, product sales, and more.",
+        "register": "Register"
+    },
+    "PRODUCTS": {
+        "title": "Our Products",
+        "description": "Discover our range of high-quality products for your pets."
+    },
+    "PRICING": {
+        "title": "Pricing Plans",
+        "description": "Choose the best plan that meets your needs.",
+        "basic": {
+            "title": "Basic",
+            "description": "Ideal for small petshops that need essential features.",
+            "price": "R$9",
+            "perMonth": "per month",
+            "features": {
+                "serviceScheduling": "Service scheduling",
+                "petRegistration": "Pet registration",
+                "serviceHistory": "Service history"
+            },
+            "buyNow": "Buy Now"
+        },
+        "premium": {
+            "title": "Premium",
+            "description": "For petshops that want more benefits and advanced features.",
+            "price": "R$29",
+            "perMonth": "per month",
+            "features": {
+                "allBasicFeatures": "All features of the Basic plan",
+                "ecommerce": "Product e-commerce",
+                "notifications": "Automatic notifications and reminders",
+                "prioritySupport": "Priority support"
+            },
+            "buyNow": "Buy Now"
+        },
+        "enterprise": {
+            "title": "Enterprise",
+            "description": "For large petshops that need complete and customized solutions.",
+            "price": "R$49",
+            "perMonth": "per month",
+            "features": {
+                "allPremiumFeatures": "All features of the Premium plan",
+                "inventoryManagement": "Inventory management",
+                "salesReports": "Sales reports",
+                "personalConsulting": "Personalized consulting",
+                "vipAccess": "VIP event access"
+            },
+            "buyNow": "Buy Now"
+        }
+    },
+    "FOOTER": {
+        "copy": "All rights reserved."
+    },
+    "DASHBOARD": {
+        "TITLE": "Dashboard",
+        "SALES": "Sales",
+        "APPOINTMENTS": "Appointments",
+        "CUSTOMERS": "Customers",
+        "PETS": "Pets"
+    }
+}
