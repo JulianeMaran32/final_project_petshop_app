@@ -1,0 +1,45 @@
+<!-- login.component.html -->
+<div class="login-container">
+    <div class="login-card lg:w-6">
+        <div class="login-img">
+            <h2>Bem-vindo de Volta</h2>
+            <span>Não tem uma conta?</span>
+            <a routerLink="/register">Crie hoje!</a>
+        </div>
+
+        <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+            <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="Endereço de email" pInputText
+                    [(ngModel)]="email" required email aria-required="true" aria-describedby="emailHelp">
+                <div *ngIf="loginForm.submitted && loginForm.controls['email'].errors" class="error-message"
+                    id="emailHelp">
+                    <span *ngIf="loginForm.controls['email'].errors['required']">Email é obrigatório.</span>
+                    <span *ngIf="loginForm.controls['email'].errors['email']">Email inválido.</span>
+                </div>
+
+                <label for="password">Senha</label>
+                <input id="password" name="password" type="password" placeholder="Senha" pInputText
+                    [(ngModel)]="password" required minlength="8" aria-required="true" aria-describedby="passwordHelp">
+                <div *ngIf="loginForm.submitted && loginForm.controls['password'].errors" class="error-message"
+                    id="passwordHelp">
+                    <span *ngIf="loginForm.controls['password'].errors['required']">Senha é obrigatória.</span>
+                    <span *ngIf="loginForm.controls['password'].errors['minlength']">Senha deve ter no mínimo 8
+                        caracteres.</span>
+                </div>
+
+                <div class="btn-link">
+                    <div class="btn-link-remember">
+                        <p-checkbox id="rememberme" [(ngModel)]="rememberMe" binary="true" styleClass="mr-2"
+                            aria-labelledby="remembermeLabel"></p-checkbox>
+                        <label for="rememberme" id="remembermeLabel">Lembrar-me</label>
+                    </div>
+                    <a routerLink="/forgot-password" class="forgot-pwd">Esqueceu a senha?</a>
+                </div>
+
+                <button pButton pRipple label="Entrar" icon="pi pi-user" class="login-button"
+                    aria-label="Entrar"></button>
+            </div>
+        </form>
+    </div>
+</div>
